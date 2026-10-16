@@ -13,7 +13,7 @@ from .texto import tokens
 
 K1 = 1.5
 B = 0.75
-LIMIAR_NOTA = 5.0
+LIMIAR_NOTA = 5.5
 LIMIAR_COBERTURA = 0.34
 # Pergunta curta em que todas as palavras aparecem no registro, como "o que é probabilidade".
 LIMIAR_NOTA_COBERTURA_TOTAL = 3.0
@@ -24,15 +24,18 @@ class Resultado:
     registro: dict
     nota: float
     cobertura: float
+    exata: bool = False  # a pergunta tem as mesmas palavras de uma forma cadastrada
 
 
 class IndiceBM25:
     def __init__(self, registros: list[dict]):
         self.registros = {r["id"]: r for r in registros}
         self.docs: list[tuple[str, list[str]]] = []
+        self.formas: dict[frozenset, str] = {}
         for r in registros:
             for pergunta in r["perguntas"]:
                 self.docs.append((r["id"], tokens(pergunta)))
+                self.formas.setdefault(frozenset(tokens(pergunta)), r["id"])
             chave = " ".join(r.get("palavras_chave", [])) + " " + r["tema"]
             self.docs.append((r["id"], tokens(chave)))
         self.n = len(self.docs)
@@ -65,7 +68,11 @@ class IndiceBM25:
             atual = melhores.get(rid)
             if atual is None or nota > atual.nota:
                 melhores[rid] = Resultado(self.registros[rid], nota, cobertura)
-        return sorted(melhores.values(), key=lambda r: r.nota, reverse=True)[:k]
+        # Empate de nota: vence o registro que tem uma forma cadastrada com as mesmas palavras.
+        exata = self.formas.get(frozenset(consulta))
+        if exata in melhores:
+            melhores[exata].exata = True
+        return sorted(melhores.values(), key=lambda r: (r.exata, r.nota), reverse=True)[:k]
 
     @staticmethod
     def suficiente(r: Resultado) -> bool:

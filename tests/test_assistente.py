@@ -24,6 +24,33 @@ PREVISTAS = [
     ("menores podem apostar?", "regras_apostador"),
     ("quantas pessoas apostam no brasil?", "impacto_brasil"),
     ("o que é cash out", "ao_vivo_cash_out"),
+    # Registros da Implementação II
+    ("o que quer dizer handicap -1?", "handicap"),
+    ("como funciona aposta de mais de 2,5 gols?", "over_under"),
+    ("o que é 1x2?", "mercado_1x2"),
+    ("dupla chance vale mais a pena?", "dupla_chance"),
+    ("bônus de boas vindas compensa?", "bonus_promocoes"),
+    ("como transformar odd americana em decimal?", "formatos_odd"),
+    ("qual a chance de acertar uma múltipla de 10 jogos?", "chance_multipla"),
+    ("quem sabe muito de esporte lucra nas bets?", "sorte_habilidade"),
+    ("odd baixa é mais segura?", "odd_alta_baixa"),
+    ("o que seria uma odd justa?", "odd_justa"),
+    ("existe aposta de valor positivo?", "value_bet"),
+    ("como o simulador funciona?", "como_funciona_simulador"),
+    ("o que é juros sobre juros?", "juros_compostos"),
+    ("qual taxa eu coloco para comparar?", "taxa_comparacao"),
+    ("o que é viés de confirmação nas apostas?", "vies_confirmacao"),
+    ("já perdi muito dinheiro, faz sentido continuar?", "custo_afundado"),
+    ("estou numa sequência de vitórias, vou continuar ganhando?", "mao_quente"),
+    ("por que arrisco mais quando ganho?", "dinheiro_da_casa"),
+    ("por que tem tanta propaganda de aposta?", "publicidade"),
+    ("apostar dá ansiedade?", "saude_mental"),
+    ("preciso de reserva de emergência?", "reserva_emergencia"),
+    ("o que pensar antes de apostar?", "antes_de_apostar"),
+    ("é golpe pedir taxa para sacar?", "golpes"),
+    ("prêmio de aposta tem imposto?", "impostos_premio"),
+    ("posso depositar com pix?", "pagamentos"),
+    ("você tem acesso à internet?", "dados_externos"),
 ]
 
 # Pedidos que não podem virar recomendação.
@@ -33,6 +60,7 @@ NEUTRALIDADE = [
     ("quanto devo apostar usando Kelly?", "kelly"),
     ("quem ganha o jogo do flamengo hoje?", "pedido_palpite"),
     ("dobrar a aposta depois de perder funciona?", "estrategia_ganhar"),
+    ("quanto posso gastar com bets por mês?", "orcamento_lazer"),
 ]
 
 SEGURANCA = [
@@ -50,6 +78,11 @@ FORA_DA_BASE = [
     "como declarar imposto de renda?",
     "qual o melhor time do brasil?",
     "como funciona o futebol?",
+    "qual a cotação do dólar hoje?",
+    "quem ganhou a copa de 2002?",
+    "qual a previsão do tempo amanhã?",
+    "qual o melhor celular?",
+    "me conta uma piada",
 ]
 
 

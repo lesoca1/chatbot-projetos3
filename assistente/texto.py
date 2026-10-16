@@ -39,6 +39,11 @@ SINONIMOS = {
     "investindo": "investimento",
     "aplicacao": "investimento",
     "poupanca": "investimento",
+    "calculo": "calcul",
+    "calcula": "calcul",
+    "calcular": "calcul",
+    "calculando": "calcul",
+    "calculado": "calcul",
 }
 
 
