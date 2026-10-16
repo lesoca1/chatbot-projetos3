@@ -4,6 +4,8 @@ Projetos III, FGV EESP, 2º semestre de 2026. Grupo Apostas esportivas: Leonardo
 
 Assistente educativo que responde perguntas sobre apostas esportivas usando **apenas** a base de conhecimento do grupo (`base/base_conhecimento.json`). Não consulta a internet, não usa modelo de linguagem externo e não dá palpites.
 
+Inclui um simulador financeiro integrado à conversa: o usuário pode escrever o cenário no chat ("aposto R$ 50 por semana há 5 anos, odd 1,80, 50% de chance, 8% ao ano") ou preencher o formulário da página Simulador. O simulador calcula total em risco, valor esperado, faixa de resultados por 10.000 simulações (Monte Carlo), sensibilidade à chance suposta, comparação com guardar o dinheiro e margem da casa.
+
 ## Como rodar
 
 ```bash
@@ -27,22 +29,33 @@ pytest
 ## Estrutura
 
 ```
-app.py                      interface (chat + prévia do simulador)
+app.py                      interface (conversa, página do simulador, gráficos e tabelas)
 base/base_conhecimento.json base de conhecimento: registros, fontes e respostas de segurança
 assistente/texto.py         normalização do português (acentos, sinônimos, radicais)
 assistente/seguranca.py     sinais de risco, verificados antes da busca
 assistente/busca.py         busca BM25 com limiar; abaixo dele, o assistente não responde
-assistente/assistente.py    orquestra segurança, busca e resposta
-assistente/simulador.py     cálculos do simulador (Conteúdo IV, Parte II)
-tests/                      testes de perguntas previstas, neutralidade, segurança e cálculos
-docs/evidencias/            capturas de tela e fluxograma
+assistente/cenario.py       leitura dos números de um cenário escrito na conversa
+assistente/simulador.py     cálculos do simulador (Conteúdo IV, Parte II), Monte Carlo e margem
+assistente/explicacao.py    frases que explicam o resultado (modelos fixos, sem IA)
+assistente/assistente.py    orquestra segurança, busca, simulador e resposta
+tests/                      testes de perguntas, neutralidade, segurança, simulador e integração
+docs/evidencias/            capturas de tela e fluxogramas (Implementação I e II)
 ```
 
 ## Como funciona a restrição à base
 
 1. A pergunta passa primeiro pelos gatilhos de segurança (crise, dívida, recuperar perdas, perda de controle). Se algum casar, a resposta vem de `respostas_seguranca` e o simulador não é oferecido.
 2. Sem sinal de risco, a busca compara a pergunta com as formas alternativas de cada registro.
-3. Se a nota do melhor registro ficar abaixo do limiar, o assistente diz que a base não cobre a pergunta. Ele nunca gera texto novo: todo texto exibido está no JSON.
+3. Se a frase traz valor e frequência de apostas, os números vão para o simulador. As frases que explicam o resultado são modelos fixos preenchidos com os números calculados.
+4. Se a nota do melhor registro ficar abaixo do limiar e não houver cenário, o assistente diz que a base não cobre a pergunta. Ele nunca gera texto novo: todo texto exibido está no JSON ou é um modelo fixo com números calculados.
+
+## Como o simulador calcula
+
+- Número de apostas = apostas por período × períodos; total em risco = valor × número de apostas.
+- Valor esperado por aposta = valor × (chance suposta × odd − 1).
+- Faixa de resultados: 10.000 trajetórias sorteadas com semente fixa. Entre dois pontos do gráfico, as vitórias seguem uma binomial, o que equivale a sortear aposta por aposta.
+- Chance de terminar no prejuízo na tabela de sensibilidade: conta exata pela binomial. Os testes conferem o Monte Carlo com essa conta.
+- Investimento: depósitos iguais ao valor apostado em cada período, com a taxa anual convertida para o período.
 
 ## Como editar a base
 

@@ -1,6 +1,6 @@
 {
-  "versao": "1.0",
-  "data_revisao": "09/10/2026",
+  "versao": "2.0",
+  "data_revisao": "16/10/2026",
   "descricao": "Base de conhecimento do assistente sobre apostas esportivas (grupo Apostas esportivas, Projetos III, FGV EESP). O assistente responde apenas com o conteúdo deste arquivo.",
   "fontes": {
     "LEI14790": "BRASIL. Lei nº 14.790, de 29 de dezembro de 2023. Dispõe sobre a modalidade lotérica de apostas de quota fixa. Disponível em: planalto.gov.br.",
@@ -24,7 +24,15 @@
     "CVV": "CENTRO DE VALORIZAÇÃO DA VIDA (CVV). Atendimento gratuito 24 horas pelo telefone 188 e em cvv.org.br.",
     "MS_CAPS": "MINISTÉRIO DA SAÚDE. Centros de Atenção Psicossocial (CAPS) e Rede de Atenção Psicossocial do SUS. Disponível em: gov.br/saude.",
     "JA": "JOGADORES ANÔNIMOS DO BRASIL. Grupos de apoio mútuo gratuitos para pessoas com problemas com jogo.",
-    "NUDGE2008": "THALER, R. H.; SUNSTEIN, C. R. Nudge: improving decisions about health, wealth, and happiness. New Haven: Yale University Press, 2008."
+    "NUDGE2008": "THALER, R. H.; SUNSTEIN, C. R. Nudge: improving decisions about health, wealth, and happiness. New Haven: Yale University Press, 2008.",
+    "NICKERSON1998": "NICKERSON, R. S. Confirmation bias: a ubiquitous phenomenon in many guises. Review of General Psychology, v. 2, n. 2, p. 175-220, 1998.",
+    "ARKES1985": "ARKES, H. R.; BLUMER, C. The psychology of sunk cost. Organizational Behavior and Human Decision Processes, v. 35, n. 1, p. 124-140, 1985.",
+    "GVT1985": "GILOVICH, T.; VALLONE, R.; TVERSKY, A. The hot hand in basketball: on the misperception of random sequences. Cognitive Psychology, v. 17, n. 3, p. 295-314, 1985.",
+    "THALERJOHNSON1990": "THALER, R. H.; JOHNSON, E. J. Gambling with the house money and trying to break even: the effects of prior outcomes on risky choice. Management Science, v. 36, n. 6, p. 643-660, 1990.",
+    "BCB_EDUFIN": "BANCO CENTRAL DO BRASIL. Caderno de Educação Financeira: gestão de finanças pessoais. Brasília: BCB, 2013.",
+    "RFB": "RECEITA FEDERAL DO BRASIL. Orientações sobre a tributação de prêmios de apostas de quota fixa. Disponível em: gov.br/receitafederal.",
+    "MONTECARLO1949": "METROPOLIS, N.; ULAM, S. The Monte Carlo method. Journal of the American Statistical Association, v. 44, n. 247, p. 335-341, 1949.",
+    "ASSAF": "ASSAF NETO, A. Matemática financeira e suas aplicações. São Paulo: Atlas."
   },
   "registros": [
     {
@@ -63,6 +71,8 @@
         "Como funciona a cotação?",
         "O que significa odd 2,00?",
         "O que é odd decimal?",
+        "Como ler uma odd?",
+        "O que significa cotação?",
         "Como ler uma odd?"
       ],
       "palavras_chave": [
@@ -90,7 +100,9 @@
         "Quanto recebo em odd 1,80?",
         "Como calcular o ganho de uma aposta?",
         "Se eu apostar 10 reais quanto ganho?",
-        "Como calcular o lucro de uma aposta?"
+        "Como calcular o lucro de uma aposta?",
+        "Como calcular o prêmio de uma aposta?",
+        "Quanto ganho apostando com odd 2?"
       ],
       "palavras_chave": [
         "recebo",
@@ -169,6 +181,8 @@
         "A casa sempre ganha?",
         "O que é GGR?",
         "De onde vem o lucro das bets?",
+        "Por que as bets lucram tanto?",
+        "A casa de apostas sempre ganha?",
         "Por que as bets lucram tanto?"
       ],
       "palavras_chave": [
@@ -223,8 +237,7 @@
         "A odd mostra a chance real de um time ganhar?",
         "Qual a chance real de ganhar uma aposta?",
         "Dá para saber a probabilidade real de um jogo?",
-        "Quais são minhas chances de ganhar?",
-        "O que é probabilidade?"
+        "Quais são minhas chances de ganhar?"
       ],
       "palavras_chave": [
         "chance real",
@@ -329,7 +342,9 @@
         "Como calcular o valor esperado de uma aposta?",
         "Vale a pena apostar?",
         "Apostar compensa?",
-        "Qual o retorno médio de uma aposta?"
+        "Qual o retorno médio de uma aposta?",
+        "Como calcular o valor esperado de uma aposta?",
+        "Quanto perco em média por aposta?"
       ],
       "palavras_chave": [
         "valor esperado",
@@ -359,7 +374,9 @@
         "Dá para ficar rico com bets?",
         "Tem como ganhar sempre?",
         "É possível lucrar a longo prazo com apostas?",
-        "Dá para ter lucro com bets?"
+        "Dá para ter lucro com bets?",
+        "Dá para viver de apostas?",
+        "Apostar pode virar renda extra?"
       ],
       "palavras_chave": [
         "ganhar dinheiro",
@@ -388,7 +405,8 @@
         "O que é custo de oportunidade?",
         "O que eu deixo de ganhar quando aposto?",
         "Qual o custo de oportunidade das apostas?",
-        "Quanto esse dinheiro poderia virar se eu não apostasse?"
+        "Quanto esse dinheiro poderia virar se eu não apostasse?",
+        "O que eu poderia fazer com o dinheiro das apostas?"
       ],
       "palavras_chave": [
         "custo de oportunidade",
@@ -412,7 +430,8 @@
         "Apostar é melhor do que investir?",
         "Aposta é investimento?",
         "Qual a diferença entre apostar e investir?",
-        "Bet é uma forma de investimento?"
+        "Bet é uma forma de investimento?",
+        "É melhor apostar ou guardar dinheiro?"
       ],
       "palavras_chave": [
         "investir",
@@ -469,7 +488,8 @@
         "O que é falácia do jogador?",
         "Depois de perder tanto agora vou ganhar?",
         "Estou devendo uma vitória?",
-        "O que é a falácia de Monte Carlo?"
+        "O que é a falácia de Monte Carlo?",
+        "Depois de muitas derrotas a vitória está perto?"
       ],
       "palavras_chave": [
         "falácia do jogador",
@@ -572,13 +592,12 @@
         "Por que é difícil parar depois de perder?",
         "Por que queremos recuperar o que perdemos?",
         "O que é perseguir as perdas?",
-        "O que é custo afundado?"
+        "Por que perder dói mais do que ganhar?"
       ],
       "palavras_chave": [
         "aversão à perda",
         "aversao",
         "parar",
-        "custo afundado",
         "perseguir",
         "difícil parar"
       ],
@@ -652,7 +671,9 @@
         "Como saber se estou viciado em bets?",
         "O que é transtorno do jogo?",
         "Quando a aposta vira problema?",
-        "Aposta pode viciar?"
+        "Aposta pode viciar?",
+        "Como saber se aposto demais?",
+        "Quando apostar vira problema?"
       ],
       "palavras_chave": [
         "vício",
@@ -710,7 +731,8 @@
         "Quero parar de apostar, o que faço?",
         "Existe tratamento para vício em apostas?",
         "Quem pode me ajudar com apostas?",
-        "Telefone de ajuda para jogador"
+        "Telefone de ajuda para jogador",
+        "Existe tratamento para vício em apostas?"
       ],
       "palavras_chave": [
         "ajuda",
@@ -769,7 +791,8 @@
         "Como bloquear minha conta em sites de apostas?",
         "Como me bloquear das bets?",
         "Posso pedir para não conseguir apostar?",
-        "Como definir limite de depósito?"
+        "Como definir limite de depósito?",
+        "Como parar de receber ofertas das bets?"
       ],
       "palavras_chave": [
         "autoexclusão",
@@ -981,7 +1004,8 @@
         "Grupos de sinais de apostas funcionam?",
         "Vale a pena pagar tipster?",
         "Grupo de palpites no Telegram é confiável?",
-        "Robô de apostas funciona?"
+        "Robô de apostas funciona?",
+        "Vale a pena pagar por palpites?"
       ],
       "palavras_chave": [
         "sinais",
@@ -1056,7 +1080,833 @@
       "fontes": [
         "SPA"
       ],
-      "limite": "Base revisada em 09/10/2026.",
+      "limite": "Base revisada em 16/10/2026.",
+      "acao": null,
+      "seguranca": null
+    },
+    {
+      "id": "mercado_1x2",
+      "tema": "Funcionamento das apostas",
+      "perguntas": [
+        "O que é o mercado 1X2?",
+        "O que significa 1X2 na aposta?",
+        "O que é apostar no resultado final?",
+        "O que quer dizer o X na aposta?",
+        "Como funciona apostar no empate?"
+      ],
+      "palavras_chave": [
+        "1x2",
+        "resultado final",
+        "empate",
+        "mandante",
+        "visitante",
+        "mercado"
+      ],
+      "resposta": "1X2 é a aposta no resultado final de uma partida. O 1 é a vitória do time da casa (mandante), o X é o empate e o 2 é a vitória do visitante. Cada um dos três resultados tem a sua odd.",
+      "aprofundamento": "Mercado é o nome do tipo de resultado em que se aposta: resultado final, número de gols, escanteios e outros. No 1X2, só um dos três resultados acontece. Somando as probabilidades implícitas das três odds, o total passa de 100%, e essa sobra é a margem da casa. Exemplo: odds 2,10, 3,40 e 3,60 dão 47,6% + 29,4% + 27,8% = 104,8%, ou seja, margem de cerca de 4,8%.",
+      "fontes": [
+        "LEI14790",
+        "LEVITT2004"
+      ],
+      "limite": "Explica o mercado; não indica em qual resultado apostar.",
+      "acao": null,
+      "seguranca": null
+    },
+    {
+      "id": "handicap",
+      "tema": "Funcionamento das apostas",
+      "perguntas": [
+        "O que é handicap?",
+        "Como funciona o handicap asiático?",
+        "O que significa handicap -1?",
+        "O que é handicap europeu?"
+      ],
+      "palavras_chave": [
+        "handicap",
+        "asiático",
+        "europeu",
+        "vantagem fictícia",
+        "desvantagem"
+      ],
+      "resposta": "Handicap é uma vantagem ou desvantagem fictícia dada a um time antes do jogo. Com handicap −1, o time precisa vencer por 2 ou mais gols para a aposta ganhar. A ideia é equilibrar jogos em que um lado é muito favorito.",
+      "aprofundamento": "Exemplo: você aposta no time A com handicap −1. Se A vence por 2 a 0, o placar ajustado fica 1 a 0 e você ganha. Se A vence por 1 a 0, o placar ajustado é 0 a 0 e, no handicap europeu, você perde. No handicap asiático, linhas como −0,5 ou −1,5 eliminam o empate, e linhas inteiras devolvem o valor apostado quando o placar ajustado empata. Mudar a linha muda a odd, mas não tira a margem da casa.",
+      "fontes": [
+        "LEVITT2004"
+      ],
+      "limite": "Regras de linhas fracionadas, como −0,25, variam entre empresas; confira o regulamento da plataforma.",
+      "acao": null,
+      "seguranca": null
+    },
+    {
+      "id": "over_under",
+      "tema": "Funcionamento das apostas",
+      "perguntas": [
+        "O que é over e under?",
+        "O que é aposta de mais ou menos gols?",
+        "O que significa over 2,5?",
+        "Como funciona aposta no número de gols?"
+      ],
+      "palavras_chave": [
+        "over",
+        "under",
+        "mais de",
+        "menos de",
+        "gols",
+        "total de gols"
+      ],
+      "resposta": "Over e under (mais e menos) são apostas no total de algo no jogo, como gols. Over 2,5 gols ganha se a partida tiver 3 gols ou mais; under 2,5 ganha se tiver 2 ou menos. O meio gol (,5) serve para não haver empate na aposta.",
+      "aprofundamento": "O mesmo formato vale para escanteios, cartões e pontos. Como só há dois resultados, as duas odds de uma linha mostram bem a margem: com odds 1,90 e 1,90, as probabilidades implícitas somam 52,6% + 52,6% = 105,3%, margem de cerca de 5,3%. Para não perder no longo prazo com odd 1,90, seria preciso acertar mais de 52,6% das vezes.",
+      "fontes": [
+        "LEVITT2004",
+        "BUSSAB"
+      ],
+      "limite": "Explica o mercado; não indica linha nem lado.",
+      "acao": null,
+      "seguranca": null
+    },
+    {
+      "id": "dupla_chance",
+      "tema": "Funcionamento das apostas",
+      "perguntas": [
+        "O que é dupla chance?",
+        "O que é empate anula aposta?",
+        "Dupla chance é mais segura?",
+        "Como funciona o empate anula?"
+      ],
+      "palavras_chave": [
+        "dupla chance",
+        "empate anula",
+        "anula",
+        "dois resultados",
+        "segura"
+      ],
+      "resposta": "Na dupla chance você cobre dois dos três resultados do jogo, por exemplo vitória do mandante ou empate. No empate anula aposta, se o jogo empatar, o valor volta para você. Nos dois casos a chance de ganhar sobe, mas a odd cai, e a margem da casa continua embutida.",
+      "aprofundamento": "Ganhar mais vezes não quer dizer ganhar mais dinheiro no longo prazo. A casa calcula a odd da dupla chance a partir das chances dos resultados que ela cobre, já com a margem. Por isso o valor esperado continua negativo: uma aposta que ganha mais vezes paga menos a cada vez.",
+      "fontes": [
+        "LEVITT2004",
+        "BUSSAB"
+      ],
+      "limite": "Não indica tipo de aposta.",
+      "acao": null,
+      "seguranca": null
+    },
+    {
+      "id": "bonus_promocoes",
+      "tema": "Funcionamento das apostas",
+      "perguntas": [
+        "Como funcionam os bônus das casas de apostas?",
+        "O que é rollover?",
+        "Vale a pena pegar bônus de boas-vindas?",
+        "O que é aposta grátis?",
+        "Bônus de bet é dinheiro de graça?"
+      ],
+      "palavras_chave": [
+        "bônus",
+        "bonus",
+        "rollover",
+        "boas-vindas",
+        "promoção",
+        "grátis",
+        "freebet"
+      ],
+      "resposta": "Bônus e promoções são ferramentas de marketing para fazer você apostar mais. Muitas vezes o bônus só pode ser sacado depois de apostar várias vezes o valor recebido (o chamado rollover), e cada uma dessas apostas tem valor esperado negativo. A Lei nº 14.790/2023 restringe esse tipo de oferta; confira as regras atuais na Secretaria de Prêmios e Apostas.",
+      "aprofundamento": "Exemplo hipotético: um bônus de R$ 100 com rollover de 10 vezes exige R$ 1.000 em apostas. Se a casa retiver em média 5% do que é apostado, a perda esperada nessas apostas é de R$ 50, metade do bônus, e há risco real de perder tudo antes de cumprir a regra. Receber algo de graça também tende a fazer a pessoa arriscar mais (efeito do dinheiro da casa). As regras de promoção vêm da lei e das portarias da SPA/MF e podem mudar.",
+      "fontes": [
+        "LEI14790",
+        "SPA",
+        "THALERJOHNSON1990"
+      ],
+      "limite": "Regras de bônus mudam; confira o texto atual na fonte oficial.",
+      "acao": "redirecionar_fonte_oficial",
+      "seguranca": null
+    },
+    {
+      "id": "formatos_odd",
+      "tema": "Funcionamento das apostas",
+      "perguntas": [
+        "Por que a odd aparece como +150?",
+        "O que é odd americana?",
+        "O que é odd fracionária?",
+        "Como converter odd americana em decimal?"
+      ],
+      "palavras_chave": [
+        "americana",
+        "fracionária",
+        "fracionaria",
+        "converter",
+        "formato",
+        "decimal"
+      ],
+      "resposta": "A odd pode aparecer em três formatos. A decimal (2,50), usada no Brasil, mostra quanto você recebe por real apostado. A fracionária (3/2) mostra o lucro sobre o valor apostado. A americana (+150 ou −200) mostra o lucro em uma aposta de 100, ou quanto é preciso apostar para lucrar 100.",
+      "aprofundamento": "Conversões: a fracionária a/b vira decimal 1 + a/b (3/2 = 2,50). A americana positiva +X vira 1 + X/100 (+150 = 2,50). A americana negativa −X vira 1 + 100/X (−200 = 1,50). Em qualquer formato, a probabilidade implícita é 1 dividido pela odd decimal.",
+      "fontes": [
+        "BUSSAB"
+      ],
+      "limite": "O simulador usa apenas a odd decimal.",
+      "acao": null,
+      "seguranca": null
+    },
+    {
+      "id": "probabilidade_basica",
+      "tema": "Probabilidades e chances de ganho",
+      "perguntas": [
+        "O que é probabilidade?",
+        "Como se calcula uma probabilidade?",
+        "O que significa 50% de chance?",
+        "Probabilidade é o mesmo que certeza?"
+      ],
+      "palavras_chave": [
+        "probabilidade",
+        "chance",
+        "chances",
+        "porcentagem",
+        "certeza",
+        "calcula"
+      ],
+      "resposta": "Probabilidade é a medida de quão provável é um resultado, de 0% (impossível) a 100% (certo). Dizer que algo tem 50% de chance significa que, em muitas repetições nas mesmas condições, aconteceria cerca de metade das vezes. Isso não garante nada em uma tentativa isolada.",
+      "aprofundamento": "Em um dado, cada face tem 1 chance em 6, cerca de 16,7%. No esporte não dá para repetir o mesmo jogo, então a probabilidade é uma estimativa, e pessoas diferentes chegam a números diferentes. Por isso o simulador trata a chance de acerto como uma hipótese sua, e não como um dado. Para ver a chance que a casa embute na cotação, pergunte sobre probabilidade implícita.",
+      "fontes": [
+        "BUSSAB"
+      ],
+      "limite": "Conceito geral; não estima a chance de nenhum jogo.",
+      "acao": null,
+      "seguranca": null
+    },
+    {
+      "id": "chance_multipla",
+      "tema": "Probabilidades e chances de ganho",
+      "perguntas": [
+        "Qual a chance de acertar 5 jogos?",
+        "Por que é tão difícil acertar todos os jogos do bilhete?",
+        "Quanto cai a chance quando junto mais jogos?"
+      ],
+      "palavras_chave": [
+        "acertar todos",
+        "jogos do bilhete",
+        "cai a chance",
+        "juntar jogos"
+      ],
+      "resposta": "Para ganhar uma múltipla é preciso acertar todos os jogos, e as chances se multiplicam. Com 5 jogos de 50% cada, a chance de acertar todos é de cerca de 3%, ou 1 em 32. Com 10 jogos, cai para cerca de 0,1%, ou 1 em 1.024.",
+      "aprofundamento": "Conta, supondo jogos independentes: chance da múltipla = chance 1 × chance 2 × ... Assim, 0,5 elevado a 5 dá 0,031 e 0,5 elevado a 10 dá 0,00098. Mesmo com jogos de 70% de chance, acertar 5 deles dá 0,7 elevado a 5, cerca de 16,8%. Como cada odd já embute a margem da casa, a margem também se multiplica.",
+      "fontes": [
+        "BUSSAB"
+      ],
+      "limite": "Supõe jogos independentes e chances hipotéticas.",
+      "acao": null,
+      "seguranca": null
+    },
+    {
+      "id": "sorte_habilidade",
+      "tema": "Probabilidades e chances de ganho",
+      "perguntas": [
+        "Apostar é sorte ou habilidade?",
+        "Quem entende de esporte ganha nas apostas?",
+        "Conhecer bem os times ajuda a ganhar?",
+        "Estudar estatística faz ganhar nas bets?"
+      ],
+      "palavras_chave": [
+        "sorte",
+        "habilidade",
+        "entende",
+        "conhecimento",
+        "estudar"
+      ],
+      "resposta": "Conhecer o esporte ajuda pouco, porque a odd já incorpora a informação pública: escalações, lesões, fase do time. Para lucrar no longo prazo seria preciso estimar as chances melhor do que a casa, com folga suficiente para cobrir a margem dela. Ganhos de curto prazo são comuns e dão a impressão de habilidade mesmo quando foram sorte.",
+      "aprofundamento": "Levitt (2004) mostra que as casas definem odds com precisão e até exploram preferências dos apostadores, como a torcida pelo time favorito. Em poucas apostas é quase impossível separar sorte de habilidade, porque sequências de acertos acontecem por acaso com frequência. Por isso o simulador não pergunta o quanto você entende do esporte, e sim qual chance você supõe ter, e mostra o que acontece se essa hipótese estiver errada.",
+      "fontes": [
+        "LEVITT2004",
+        "BARBERODEAN2001"
+      ],
+      "limite": "Não avalia a habilidade de ninguém.",
+      "acao": null,
+      "seguranca": null
+    },
+    {
+      "id": "odd_alta_baixa",
+      "tema": "Probabilidades e chances de ganho",
+      "perguntas": [
+        "Odd alta é melhor que odd baixa?",
+        "Por que odd alta paga mais?",
+        "O que significa odd baixa?"
+      ],
+      "palavras_chave": [
+        "odd alta",
+        "odd baixa",
+        "paga mais",
+        "favorito",
+        "zebra"
+      ],
+      "resposta": "Odd alta paga mais porque o resultado é considerado pouco provável; odd baixa paga pouco porque o resultado é considerado provável. Nenhuma é melhor por si só, porque as duas embutem a margem da casa. Trocar de odd troca frequência de acerto por tamanho do prêmio, sem mudar o fato de o valor esperado ser negativo.",
+      "aprofundamento": "A odd 1,20 implica 83,3% de chance; a odd 6,00 implica 16,7%. Quem aposta em odds baixas acerta muito, mas uma derrota apaga vários acertos: com odd 1,20, cada derrota de R$ 10 exige 5 vitórias de R$ 10 para compensar. Quem aposta em odds altas costuma perder muitas vezes seguidas antes de um prêmio. O simulador mostra como a faixa de resultados muda com a odd.",
+      "fontes": [
+        "BUSSAB",
+        "LEVITT2004"
+      ],
+      "limite": "Não indica que odd escolher.",
+      "acao": "oferecer_simulador",
+      "seguranca": "nao_recomendar"
+    },
+    {
+      "id": "calcular_margem",
+      "tema": "Vantagem da casa",
+      "perguntas": [
+        "Como calcular a margem de um jogo?",
+        "Como saber quanto a casa ganha em uma partida?",
+        "Como descobrir a margem pelas odds?",
+        "Qual a fórmula da margem da casa?"
+      ],
+      "palavras_chave": [
+        "calcular margem",
+        "fórmula",
+        "overround",
+        "somar odds"
+      ],
+      "resposta": "Some as probabilidades implícitas de todos os resultados possíveis do jogo (1 dividido por cada odd). O que passar de 100% é a margem da casa. Com odds 2,10, 3,40 e 3,60, a soma dá 104,8%, ou seja, margem de cerca de 4,8%. O simulador faz essa conta se você informar as odds de todos os resultados.",
+      "aprofundamento": "Fórmula: margem = (1/odd 1 + 1/odd 2 + ... + 1/odd n) − 1. Só faz sentido com as odds de todos os resultados do mesmo mercado. Dividindo cada probabilidade implícita pela soma, obtém-se uma estimativa da chance sem a margem: no exemplo, 45,4%, 28,1% e 26,5%. A margem varia entre empresas, jogos e mercados, por isso o assistente não usa um número fixo.",
+      "fontes": [
+        "LEVITT2004",
+        "BUSSAB"
+      ],
+      "limite": "A chance sem a margem é uma estimativa, não a chance real.",
+      "acao": "oferecer_simulador",
+      "seguranca": null
+    },
+    {
+      "id": "odd_justa",
+      "tema": "Vantagem da casa",
+      "perguntas": [
+        "O que é odd justa?",
+        "Qual seria a odd sem a margem da casa?",
+        "Como calcular a odd justa?"
+      ],
+      "palavras_chave": [
+        "odd justa",
+        "justa",
+        "sem margem"
+      ],
+      "resposta": "Odd justa é a cotação em que o valor esperado da aposta seria zero. Ela é 1 dividido pela probabilidade: se um resultado tem 50% de chance, a odd justa é 2,00. As casas pagam menos que a odd justa, e essa diferença é a vantagem delas.",
+      "aprofundamento": "Exemplo: se o resultado tem de fato 50% de chance e a casa paga 1,90, cada aposta de R$ 10 tem valor esperado de 10 × (0,5 × 1,90 − 1) = − R$ 0,50. Como ninguém conhece a chance real, a odd justa só pode ser estimada, por exemplo retirando a margem das odds de um jogo.",
+      "fontes": [
+        "BUSSAB",
+        "LEVITT2004"
+      ],
+      "limite": "A chance real de um jogo é desconhecida.",
+      "acao": null,
+      "seguranca": null
+    },
+    {
+      "id": "value_bet",
+      "tema": "Expectativa de retorno e perdas no longo prazo",
+      "perguntas": [
+        "O que é value bet?",
+        "O que é aposta de valor?",
+        "Existe aposta com valor esperado positivo?",
+        "O que é surebet ou arbitragem?"
+      ],
+      "palavras_chave": [
+        "value bet",
+        "aposta de valor",
+        "valor esperado positivo",
+        "surebet",
+        "arbitragem"
+      ],
+      "resposta": "Aposta de valor (value bet) é aquela em que a pessoa acredita que a chance real é maior do que a odd sugere. O problema é que essa crença é uma hipótese, e errar a estimativa por poucos pontos já torna o valor esperado negativo. Arbitragem (surebet) é apostar em todos os resultados em casas diferentes para travar lucro, o que depende de diferenças raras e pequenas entre odds.",
+      "aprofundamento": "Exemplo: com odd 2,10, o valor esperado só é positivo se a chance real passar de 47,6%. Se você estima 50% mas a chance real é 45%, cada aposta de R$ 10 tem valor esperado de 10 × (0,45 × 2,10 − 1) = − R$ 0,55. O excesso de confiança faz as pessoas acharem que estimam melhor do que estimam. O simulador mostra como o resultado muda quando a sua hipótese de chance muda. O assistente não indica apostas.",
+      "fontes": [
+        "BUSSAB",
+        "LEVITT2004",
+        "BARBERODEAN2001"
+      ],
+      "limite": "Não indica apostas nem estratégias.",
+      "acao": "oferecer_simulador",
+      "seguranca": "nao_recomendar"
+    },
+    {
+      "id": "como_funciona_simulador",
+      "tema": "Simulador financeiro",
+      "perguntas": [
+        "Como funciona o simulador?",
+        "O que o simulador calcula?",
+        "Quais dados o simulador pede?",
+        "Como usar o simulador?",
+        "O simulador prevê se vou ganhar?"
+      ],
+      "palavras_chave": [
+        "simulador",
+        "simular",
+        "simulação",
+        "calcula"
+      ],
+      "resposta": "O simulador mostra o efeito financeiro de um padrão de apostas que você descreve: valor por aposta, frequência e período. Com a odd média e uma hipótese de chance de acerto, calcula o resultado médio esperado e uma faixa de resultados possíveis. Com uma taxa anual, compara com guardar o mesmo dinheiro. Ele não prevê jogos nem recomenda apostas.",
+      "aprofundamento": "Contas: número de apostas = frequência × período; total em risco = valor × número de apostas; valor esperado por aposta = valor × (chance × odd − 1); investimento = depósitos iguais com juros compostos. A faixa de resultados vem de 10.000 sequências sorteadas de vitórias e derrotas (método de Monte Carlo). Você também pode escrever o cenário na conversa, por exemplo: \"aposto R$ 50 por semana há 5 anos, odd 1,80, 50% de chance, 8% ao ano\".",
+      "fontes": [
+        "BUSSAB",
+        "MONTECARLO1949"
+      ],
+      "limite": "Hipóteses constantes e apostas independentes. Não é previsão nem recomendação.",
+      "acao": "oferecer_simulador",
+      "seguranca": null
+    },
+    {
+      "id": "faixa_resultados",
+      "tema": "Simulador financeiro",
+      "perguntas": [
+        "O que é a faixa de resultados?",
+        "O que é simulação de Monte Carlo?",
+        "Por que o simulador mostra vários resultados?",
+        "O que significa a mediana no simulador?",
+        "O que é o pior e o melhor caso?",
+        "O que é o método de Monte Carlo?"
+      ],
+      "palavras_chave": [
+        "faixa",
+        "monte carlo",
+        "mediana",
+        "pior caso",
+        "melhor caso",
+        "trajetórias",
+        "percentil"
+      ],
+      "resposta": "A faixa de resultados mostra o que pode acontecer além da média. O simulador sorteia 10.000 sequências de vitórias e derrotas com as suas hipóteses e vê como cada uma termina. A faixa reúne 90% dessas sequências, e a mediana é o resultado do meio. Esse é o método de Monte Carlo.",
+      "aprofundamento": "Exemplo do Conteúdo IV (R$ 50 por semana, 5 anos, odd 1,80, 50% de chance): a média esperada é − R$ 1.300, e em 90% das simulações o resultado fica entre − R$ 2.470 e − R$ 130. Cerca de 3% das simulações terminam no lucro: alguém pode ganhar por sorte mesmo com valor esperado negativo, e é isso que alimenta as histórias de ganho. Uma sequência isolada não é previsão do que vai acontecer com você.",
+      "fontes": [
+        "MONTECARLO1949",
+        "BUSSAB"
+      ],
+      "limite": "Supõe chance, odd e valor constantes e apostas independentes.",
+      "acao": "oferecer_simulador",
+      "seguranca": null
+    },
+    {
+      "id": "juros_compostos",
+      "tema": "Custo de oportunidade",
+      "perguntas": [
+        "O que são juros compostos?",
+        "Por que o dinheiro guardado cresce mais com o tempo?",
+        "Como funcionam juros sobre juros?"
+      ],
+      "palavras_chave": [
+        "juros compostos",
+        "juros sobre juros",
+        "rende",
+        "cresce",
+        "rendimento"
+      ],
+      "resposta": "Juros compostos são juros calculados sobre o valor inicial e também sobre os juros já ganhos. Por isso o dinheiro guardado cresce cada vez mais rápido. É esse mecanismo que torna o custo de oportunidade das apostas maior quanto mais longo o período.",
+      "aprofundamento": "Fórmula para um valor único: valor final = valor inicial × (1 + taxa) elevado ao número de períodos. R$ 1.000 a 8% ao ano viram R$ 1.080 em 1 ano, R$ 1.469 em 5 anos e R$ 2.159 em 10 anos. Com depósitos regulares, o simulador soma cada depósito com os juros do tempo em que ficou aplicado. A taxa anual vira taxa do período por (1 + taxa anual) elevado a (1 / períodos por ano), menos 1.",
+      "fontes": [
+        "ASSAF",
+        "BCB_EDUFIN"
+      ],
+      "limite": "Taxa hipotética e constante.",
+      "acao": "oferecer_simulador",
+      "seguranca": null
+    },
+    {
+      "id": "taxa_comparacao",
+      "tema": "Custo de oportunidade",
+      "perguntas": [
+        "Que taxa usar para comparar com investimento?",
+        "Qual taxa de juros colocar no simulador?",
+        "A taxa do simulador é garantida?",
+        "Qual é a taxa de juros hoje?"
+      ],
+      "palavras_chave": [
+        "taxa",
+        "comparar",
+        "garantida",
+        "simulador",
+        "juros"
+      ],
+      "resposta": "Use uma taxa que represente uma alternativa realista para você, como a de uma aplicação conservadora, e trate o resultado como ilustração. O assistente não tem taxas atualizadas, porque não consulta a internet. A taxa do simulador é uma hipótese constante, não uma promessa de rendimento nem uma recomendação de investimento.",
+      "aprofundamento": "Taxas de aplicações mudam com a política de juros, e o rendimento real depende também de inflação, impostos e custos. Para valores atuais, consulte fontes oficiais como o Banco Central. Testar duas ou três taxas diferentes mostra quanto a comparação depende dessa hipótese.",
+      "fontes": [
+        "BCB_EDUFIN"
+      ],
+      "limite": "Não é recomendação de investimento.",
+      "acao": "oferecer_simulador",
+      "seguranca": null
+    },
+    {
+      "id": "vies_confirmacao",
+      "tema": "Vieses comportamentais",
+      "perguntas": [
+        "O que é viés de confirmação?",
+        "Por que só lembro das apostas que acertei?",
+        "Por que procuro informações que confirmam meu palpite?"
+      ],
+      "palavras_chave": [
+        "viés de confirmação",
+        "confirmação",
+        "confirmam",
+        "lembro"
+      ],
+      "resposta": "Viés de confirmação é a tendência de buscar e lembrar o que confirma o que já acreditamos, e ignorar o resto. Nas apostas, a pessoa lembra dos acertos, lê só análises que apoiam o palpite e explica as derrotas como azar. Isso dá uma impressão falsa de habilidade.",
+      "aprofundamento": "Nickerson (1998) reúne estudos que mostram esse viés em várias áreas. Um antídoto simples é anotar todas as apostas, com valor e resultado, e somar no fim do mês. O registro completo costuma contar uma história diferente da memória.",
+      "fontes": [
+        "NICKERSON1998"
+      ],
+      "limite": "Explica o viés; não diagnostica ninguém.",
+      "acao": null,
+      "seguranca": null
+    },
+    {
+      "id": "custo_afundado",
+      "tema": "Vieses comportamentais",
+      "perguntas": [
+        "O que é custo afundado?",
+        "Por que continuo apostando para não perder o que já gastei?",
+        "O que é falácia do custo irrecuperável?",
+        "Já gastei muito, devo continuar?",
+        "Já perdi muito, faz sentido continuar apostando?"
+      ],
+      "palavras_chave": [
+        "custo afundado",
+        "irrecuperável",
+        "já gastei",
+        "continuar"
+      ],
+      "resposta": "Custo afundado é o dinheiro que já foi gasto e não volta, aconteça o que acontecer. O erro comum é continuar apostando para não sentir que aquele dinheiro foi perdido à toa. Mas as perdas passadas não mudam o valor esperado das próximas apostas: a decisão deveria olhar só para frente.",
+      "aprofundamento": "Arkes e Blumer (1985) mostram que pessoas continuam investindo em algo ruim por causa do que já gastaram. Nas apostas, esse viés se junta à aversão à perda e ao impulso de recuperar prejuízos, que é um sinal de alerta. Se você sente que precisa continuar para recuperar o que perdeu, o assistente mostra caminhos de apoio.",
+      "fontes": [
+        "ARKES1985",
+        "KT1979"
+      ],
+      "limite": "Explica o viés; não substitui atendimento profissional.",
+      "acao": null,
+      "seguranca": null
+    },
+    {
+      "id": "mao_quente",
+      "tema": "Vieses comportamentais",
+      "perguntas": [
+        "O que é mão quente?",
+        "Estou numa fase boa, a sorte vai continuar?",
+        "Sequência de vitórias quer dizer que estou com sorte?",
+        "O que é hot hand?",
+        "Estou numa sequência de vitórias, vou continuar ganhando?"
+      ],
+      "palavras_chave": [
+        "mão quente",
+        "mao quente",
+        "hot hand",
+        "fase boa",
+        "sequência de vitórias",
+        "maré"
+      ],
+      "resposta": "Mão quente é a crença de que quem acertou várias vezes seguidas está em uma fase boa e vai continuar acertando. Em eventos independentes, uma sequência de vitórias não aumenta a chance da próxima. É o espelho da falácia do jogador, que espera uma vitória depois de várias derrotas.",
+      "aprofundamento": "Gilovich, Vallone e Tversky (1985) estudaram essa crença no basquete e mostraram que as pessoas veem padrões em sequências compatíveis com o acaso. Estudos posteriores discutem se atletas têm de fato pequenas fases boas, mas isso não vale para o apostador: o resultado da aposta depende do jogo, não da fase de quem aposta. Achar que está com sorte costuma levar a apostas maiores.",
+      "fontes": [
+        "GVT1985",
+        "TK1974"
+      ],
+      "limite": "Explica o viés; não avalia apostas.",
+      "acao": null,
+      "seguranca": null
+    },
+    {
+      "id": "dinheiro_da_casa",
+      "tema": "Vieses comportamentais",
+      "perguntas": [
+        "O que é efeito do dinheiro da casa?",
+        "Por que arrisco mais quando estou ganhando?",
+        "Por que gasto o prêmio da aposta com mais facilidade?",
+        "Dinheiro ganho na aposta vale menos?"
+      ],
+      "palavras_chave": [
+        "dinheiro da casa",
+        "house money",
+        "arrisco mais",
+        "estou ganhando",
+        "prêmio"
+      ],
+      "resposta": "Efeito do dinheiro da casa é a tendência de arriscar mais com dinheiro que acabou de ser ganho, como se ele valesse menos que o dinheiro do trabalho. Nas apostas, o prêmio volta para novas apostas com facilidade. Mas um real ganho na aposta compra o mesmo que qualquer outro real.",
+      "aprofundamento": "Thaler e Johnson (1990) mostram que, depois de um ganho, as pessoas aceitam riscos que recusariam em outra situação. É um caso de contabilidade mental: o dinheiro é separado em contas imaginárias. Um jeito de evitar o efeito é sacar os ganhos e tratá-los como qualquer outro dinheiro.",
+      "fontes": [
+        "THALERJOHNSON1990",
+        "THALER1985"
+      ],
+      "limite": "Explica o viés; não avalia apostas.",
+      "acao": null,
+      "seguranca": null
+    },
+    {
+      "id": "publicidade",
+      "tema": "Riscos da aposta excessiva",
+      "perguntas": [
+        "Por que tem tanta propaganda de bets?",
+        "Influenciadores ganham para divulgar bets?",
+        "A publicidade de apostas é regulada?",
+        "Por que tantos times são patrocinados por bets?"
+      ],
+      "palavras_chave": [
+        "propaganda",
+        "publicidade",
+        "influenciador",
+        "influenciadores",
+        "patrocínio",
+        "anúncio"
+      ],
+      "resposta": "As empresas de apostas investem muito em publicidade, patrocínio e influenciadores porque a propaganda atrai apostadores e aumenta a frequência das apostas. Anúncios mostram ganhos e quase nunca as perdas. A lei e as normas da Secretaria de Prêmios e Apostas restringem a publicidade, por exemplo a dirigida a menores de idade.",
+      "aprofundamento": "Ver muitos casos de ganho na propaganda e nas redes reforça a heurística da disponibilidade: o que é fácil de lembrar parece mais frequente. Influenciadores podem ser pagos pelas empresas, o que cria conflito de interesse, porque o ganho deles não depende de o seguidor ganhar. As regras de publicidade estão na Lei nº 14.790/2023 e em portarias da SPA/MF; confira a versão atual.",
+      "fontes": [
+        "LEI14790",
+        "SPA",
+        "TK1973"
+      ],
+      "limite": "Regras de publicidade mudam; confira o texto atual na fonte oficial.",
+      "acao": "redirecionar_fonte_oficial",
+      "seguranca": null
+    },
+    {
+      "id": "saude_mental",
+      "tema": "Riscos da aposta excessiva",
+      "perguntas": [
+        "Apostar faz mal à saúde mental?",
+        "Apostas causam ansiedade?",
+        "Quais os efeitos das apostas na saúde?",
+        "Aposta pode virar doença?"
+      ],
+      "palavras_chave": [
+        "saúde mental",
+        "ansiedade",
+        "depressão",
+        "doença",
+        "saúde"
+      ],
+      "resposta": "Apostas frequentes podem levar a ansiedade, insônia, conflitos familiares e dívidas. Em parte das pessoas viram transtorno do jogo, uma condição reconhecida pela Organização Mundial da Saúde e pelo DSM-5. Há atendimento gratuito no SUS.",
+      "aprofundamento": "A CID-11 (código 6C50) descreve o transtorno do jogo como perda de controle sobre o jogo, prioridade crescente para apostar e continuação apesar das consequências negativas. O transtorno costuma vir junto de ansiedade e depressão. Os CAPS do SUS atendem esses casos, e o CVV (188) oferece apoio emocional 24 horas. Para os sinais de alerta, pergunte quais são os sinais de vício.",
+      "fontes": [
+        "CID11",
+        "DSM5",
+        "MS_CAPS",
+        "CVV"
+      ],
+      "limite": "Informação geral; não substitui avaliação profissional.",
+      "acao": "fluxo_seguranca",
+      "seguranca": null
+    },
+    {
+      "id": "ajudar_alguem",
+      "tema": "Participação consciente e responsável",
+      "perguntas": [
+        "Como ajudar alguém viciado em apostas?",
+        "Meu amigo aposta demais, o que eu faço?",
+        "Como conversar com um familiar que aposta muito?",
+        "Meu pai está viciado em bets, como ajudar?",
+        "Alguém da minha família aposta demais, como ajudar?"
+      ],
+      "palavras_chave": [
+        "ajudar",
+        "amigo",
+        "familiar",
+        "conversar",
+        "alguém",
+        "parente",
+        "irmão",
+        "irmã",
+        "mãe",
+        "pai",
+        "filho",
+        "filha",
+        "marido",
+        "esposa",
+        "namorado",
+        "namorada",
+        "família"
+      ],
+      "resposta": "Converse em um momento calmo, sem acusar, falando do que você observou e de como isso afeta vocês. Evite emprestar dinheiro ou pagar dívidas de aposta, porque isso costuma prolongar o problema. Sugira apoio profissional: o CAPS do SUS atende de graça, e há grupos de apoio mútuo, como os Jogadores Anônimos.",
+      "aprofundamento": "Sinais comuns: pedir dinheiro emprestado, esconder apostas, irritação quando não pode apostar e tentar recuperar perdas. Cuidar de si também importa: proteger contas conjuntas e documentos financeiros é razoável. Se a pessoa falar em se machucar ou em não querer mais viver, ligue para o CVV (188) ou, em emergência, para o 192.",
+      "fontes": [
+        "MS_CAPS",
+        "JA",
+        "CVV",
+        "DSM5"
+      ],
+      "limite": "Orientação geral; não substitui atendimento profissional.",
+      "acao": "fluxo_seguranca",
+      "seguranca": null
+    },
+    {
+      "id": "reserva_emergencia",
+      "tema": "Participação consciente e responsável",
+      "perguntas": [
+        "O que é reserva de emergência?",
+        "Preciso ter reserva antes de apostar?",
+        "Por que separar dinheiro para imprevistos?"
+      ],
+      "palavras_chave": [
+        "reserva de emergência",
+        "reserva",
+        "imprevistos",
+        "emergência"
+      ],
+      "resposta": "Reserva de emergência é um dinheiro guardado para imprevistos, como perda de renda ou problema de saúde. Uma referência comum em educação financeira é juntar o equivalente a alguns meses de gastos essenciais. Dinheiro da reserva, de contas ou de comida não deveria ir para apostas.",
+      "aprofundamento": "Apostas são um gasto com risco alto de perda. Quem aposta sem reserva fica mais exposto a se endividar quando perde. Uma ordem mais segura é: primeiro as contas essenciais, depois a reserva, e só então gastos de lazer com limite definido. Se você já usou dinheiro essencial para apostar, o assistente mostra caminhos de apoio.",
+      "fontes": [
+        "BCB_EDUFIN"
+      ],
+      "limite": "Não é orientação financeira individual.",
+      "acao": null,
+      "seguranca": null
+    },
+    {
+      "id": "orcamento_lazer",
+      "tema": "Participação consciente e responsável",
+      "perguntas": [
+        "Quanto do meu dinheiro posso gastar com apostas?",
+        "Qual valor é seguro para apostar?",
+        "Quanto posso apostar por mês sem problema?"
+      ],
+      "palavras_chave": [
+        "valor seguro",
+        "quanto posso",
+        "gastar",
+        "orçamento",
+        "lazer"
+      ],
+      "resposta": "Não existe um valor seguro que valha para todos. Se você decidir apostar, a referência é tratar como gasto de lazer: um valor que você aceita perder por completo, decidido antes, sem tirar de contas essenciais, da reserva ou de empréstimos. Se esse valor vive sendo ultrapassado, isso é um sinal de alerta.",
+      "aprofundamento": "Uma forma prática é definir um limite mensal e configurá-lo na plataforma, já que as empresas autorizadas devem oferecer limites de depósito. Compare esse limite com outros gastos de lazer do mês. O simulador mostra quanto o limite escolhido soma em um ano e quanto renderia se fosse guardado.",
+      "fontes": [
+        "NUDGE2008",
+        "SPA",
+        "BCB_EDUFIN"
+      ],
+      "limite": "O assistente não recomenda valores para apostar.",
+      "acao": "oferecer_simulador",
+      "seguranca": "nao_recomendar"
+    },
+    {
+      "id": "antes_de_apostar",
+      "tema": "Participação consciente e responsável",
+      "perguntas": [
+        "O que pensar antes de fazer uma aposta?",
+        "Que perguntas fazer antes de apostar?",
+        "Como decidir se é uma boa hora para apostar?"
+      ],
+      "palavras_chave": [
+        "antes de apostar",
+        "pensar",
+        "decidir",
+        "boa hora"
+      ],
+      "resposta": "Antes de apostar, vale responder a quatro perguntas. Este dinheiro pode ser perdido sem afetar contas essenciais? Estou dentro do limite que defini? Estou tentando recuperar uma perda? Estou com raiva, ansioso ou depois de beber? Se alguma resposta preocupar, a decisão mais segura é não apostar agora.",
+      "aprofundamento": "Decisões tomadas no calor do momento tendem a ignorar riscos. Kahneman descreve dois modos de pensar: um rápido e emocional, outro lento e deliberado. Regras definidas antes, quando a pessoa está calma, ajudam a não depender do modo rápido. Anotar o limite e o motivo de cada aposta também ajuda a perceber padrões.",
+      "fontes": [
+        "KAHNEMAN2011",
+        "NUDGE2008"
+      ],
+      "limite": "Medidas de redução de danos; o assistente não incentiva apostas.",
+      "acao": null,
+      "seguranca": null
+    },
+    {
+      "id": "golpes",
+      "tema": "Regulação",
+      "perguntas": [
+        "Como evitar golpes de apostas?",
+        "Pediram Pix para liberar meu saque, é golpe?",
+        "Existe aposta com lucro garantido?",
+        "Prometeram lucro certo nas bets, é verdade?",
+        "Pedir taxa para sacar é golpe?"
+      ],
+      "palavras_chave": [
+        "golpe",
+        "fraude",
+        "pix",
+        "saque",
+        "lucro garantido",
+        "lucro certo",
+        "falso",
+        "sacar",
+        "taxa para sacar"
+      ],
+      "resposta": "Desconfie de qualquer promessa de lucro garantido: nenhuma aposta tem resultado certo. Outros sinais de golpe são sites que não terminam em .bet.br, pedidos de Pix ou de taxa para liberar saque e perfis que pedem dinheiro para passar palpites. Na dúvida, não transfira e confira a empresa na lista oficial da Secretaria de Prêmios e Apostas.",
+      "aprofundamento": "Golpistas usam páginas e perfis que imitam empresas e influenciadores conhecidos. Em empresas autorizadas, o apostador tem regras de proteção e canais de reclamação. Se você caiu em um golpe, guarde os comprovantes, avise o banco o quanto antes e registre boletim de ocorrência. Pegar dinheiro emprestado para cobrir o prejuízo aumenta o risco; veja os canais de apoio.",
+      "fontes": [
+        "SPA",
+        "LEI14790"
+      ],
+      "limite": "O assistente não confirma se uma empresa ou perfil específico é confiável.",
+      "acao": "redirecionar_fonte_oficial",
+      "seguranca": null
+    },
+    {
+      "id": "impostos_premio",
+      "tema": "Regulação",
+      "perguntas": [
+        "Prêmio de aposta paga imposto?",
+        "Ganho em bet tem imposto?",
+        "Como é a tributação dos prêmios de apostas?",
+        "Quanto de imposto se paga no prêmio da bet?"
+      ],
+      "palavras_chave": [
+        "imposto",
+        "tributação",
+        "tributo",
+        "prêmio",
+        "15%"
+      ],
+      "resposta": "Sim. Pela Lei nº 14.790/2023, o ganho líquido com apostas está sujeito a Imposto de Renda de 15%, calculado no ano sobre a parte que passa da faixa de isenção da tabela do imposto. Regras de tributação mudam; confira a versão atual na Receita Federal.",
+      "aprofundamento": "Ganho líquido é o total de prêmios do ano menos as perdas em apostas da mesma natureza. A lei também prevê tributos pagos pelas empresas sobre a receita delas. Como o assistente não consulta a internet, valores de faixas e mudanças posteriores na lei devem ser conferidos na Receita Federal e na SPA, com a data da consulta.",
+      "fontes": [
+        "LEI14790",
+        "RFB"
+      ],
+      "limite": "Não é orientação tributária. Confira a regra atual na Receita Federal.",
+      "acao": "redirecionar_fonte_oficial",
+      "seguranca": null
+    },
+    {
+      "id": "pagamentos",
+      "tema": "Regulação",
+      "perguntas": [
+        "Como posso depositar em uma bet?",
+        "Posso apostar com Pix?",
+        "Posso apostar com criptomoeda?",
+        "A conta da bet precisa estar no meu nome?"
+      ],
+      "palavras_chave": [
+        "depositar",
+        "depósito",
+        "pix",
+        "criptomoeda",
+        "débito",
+        "meu nome",
+        "pagamento"
+      ],
+      "resposta": "As normas da Secretaria de Prêmios e Apostas definem como depositar e sacar em empresas autorizadas. Segundo a base, valem meios como Pix, transferência e cartão de débito, a conta precisa estar no nome do próprio apostador, e cartão de crédito, criptomoedas e dinheiro em espécie não são aceitos. Confira a regra atual na SPA.",
+      "aprofundamento": "Exigir conta no nome do apostador ajuda a evitar o uso por menores e a lavagem de dinheiro. Proibir o cartão de crédito evita que a pessoa aposte dinheiro que ainda não tem. As regras de pagamento estão em portaria da SPA/MF e podem mudar; o grupo registra a data da última conferência na fonte oficial.",
+      "fontes": [
+        "SPA",
+        "LEI14790"
+      ],
+      "limite": "Não é orientação jurídica. Confira a data e o texto na fonte oficial.",
+      "acao": "redirecionar_fonte_oficial",
+      "seguranca": null
+    },
+    {
+      "id": "dados_externos",
+      "tema": "Limites do assistente",
+      "perguntas": [
+        "Você sabe o resultado dos jogos?",
+        "Você tem estatísticas dos times?",
+        "Você acessa a internet?",
+        "Por que você não pesquisa na internet?"
+      ],
+      "palavras_chave": [
+        "internet",
+        "estatísticas",
+        "resultado dos jogos",
+        "tempo real",
+        "pesquisa"
+      ],
+      "resposta": "Não. Não acesso a internet, não tenho resultados nem estatísticas de jogos e não acompanho odds em tempo real. Essa é uma escolha do projeto: respondo só com a base de conhecimento revisada pelo grupo, para não passar informação sem fonte ou desatualizada.",
+      "aprofundamento": "Por isso, perguntas sobre jogos, times ou notícias ficam fora da base. Para regras que mudam, como a lista de empresas autorizadas, indico a fonte oficial. Para cálculos, o simulador usa apenas os números que você informar.",
+      "fontes": [
+        "SPA"
+      ],
+      "limite": "Base revisada em 16/10/2026.",
       "acao": null,
       "seguranca": null
     }
