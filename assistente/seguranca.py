@@ -18,8 +18,10 @@ GATILHOS = [
         r"(minha|minhas|tenho|estou com|to com|fiz|fazer) (uma )?dividas?", r"\bdevendo\b",
         r"emprestimo", r"emprestad", r"agiota", r"cheque especial",
         r"dinheiro (do|da|das|dos) (aluguel|mercado|comida|contas?|luz|escola|faculdade)",
-        r"(aluguel|salario|conta de luz|bolsa familia).{0,40}(aposta|apostar|bet)",
-        r"(aposta|apostar|apostei|bet).{0,40}(aluguel|salario|conta de luz|bolsa familia)",
+        r"(aluguel|conta de luz|bolsa familia).{0,40}(aposta|apostar|bet)",
+        r"(aposta|apostar|apostei|bet).{0,40}(aluguel|conta de luz|bolsa familia)",
+        # Salário só é sinal de risco quando já foi usado; "quanto do salário posso gastar" é dúvida de orçamento.
+        r"(usei|gastei|aposto|apostei|torrei|perdi|coloquei|joguei|botei) (o |meu |todo o |metade do )?(dinheiro do )?salario",
     ]),
     ("recuperar_perdas", [
         r"recuperar (o que |tudo o que |o dinheiro que )?(eu )?perdi", r"(quero|preciso|tenho que|vou) recuperar",
