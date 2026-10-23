@@ -43,7 +43,9 @@ def test_caso_do_conteudo_iv_na_conversa():
     assert r.tipo == "simulacao"
     assert r.simulacao["ve_total"] == pytest.approx(-1300)
     texto = " ".join(r.calculo)
-    assert "260 apostas" in texto and "R$ 13.000,00" in texto and "R$ 15.843,73" in texto
+    assert "260 apostas" in texto and "R$ 13.000" in texto and "R$ 15.844" in texto
+    assert "perderia R$ 1.300" in texto and "R$ 10 de cada R$ 100" in texto
+    assert "pelo menos 56 de cada 100" in texto and "acerta 50 de cada 100" in texto
 
 
 def test_pergunta_da_base_com_numeros_traz_texto_e_contas():

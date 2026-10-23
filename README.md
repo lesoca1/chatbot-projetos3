@@ -4,6 +4,8 @@ Projetos III, FGV EESP, 2º semestre de 2026. Grupo Apostas esportivas: Leonardo
 
 Assistente educativo que responde perguntas sobre apostas esportivas usando **apenas** a base de conhecimento do grupo (`base/base_conhecimento.json`). Não consulta a internet, não usa modelo de linguagem externo e não dá palpites.
 
+As respostas vêm em camadas, da mais simples à mais detalhada: um resumo em uma frase, a resposta curta, a definição das palavras difíceis que aparecem nela (glossário com 32 termos) e, só se o usuário quiser, o aprofundamento com fontes. As chances aparecem como "X de cada 100" e os valores em reais sem centavos.
+
 Inclui um simulador financeiro integrado à conversa: o usuário pode escrever o cenário no chat ("aposto R$ 50 por semana há 5 anos, odd 1,80, 50% de chance, 8% ao ano") ou preencher o formulário da página Simulador. O simulador calcula total em risco, valor esperado, faixa de resultados por 10.000 simulações (Monte Carlo), sensibilidade à chance suposta, comparação com guardar o dinheiro e margem da casa.
 
 ## Como rodar
@@ -36,10 +38,13 @@ assistente/seguranca.py     sinais de risco, verificados antes da busca
 assistente/busca.py         busca BM25 com limiar; abaixo dele, o assistente não responde
 assistente/cenario.py       leitura dos números de um cenário escrito na conversa
 assistente/simulador.py     cálculos do simulador (Conteúdo IV, Parte II), Monte Carlo e margem
-assistente/explicacao.py    frases que explicam o resultado (modelos fixos, sem IA)
+assistente/explicacao.py    frases que explicam o resultado em linguagem simples (modelos fixos, sem IA)
+assistente/legibilidade.py  índice de Flesch adaptado ao português, usado nos testes
 assistente/assistente.py    orquestra segurança, busca, simulador e resposta
-tests/                      testes de perguntas, neutralidade, segurança, simulador e integração
-docs/evidencias/            capturas de tela e fluxogramas (Implementação I e II)
+tests/                      testes de perguntas, neutralidade, segurança, simulador, integração e linguagem
+docs/avaliacao/             perguntas escritas como apostador e script que mede a taxa de acerto
+docs/roteiro_teste_usuarios.md  roteiro dos testes com usuários
+docs/evidencias/            capturas de tela e diagramas (Implementações I, II e III)
 ```
 
 ## Como funciona a restrição à base
@@ -59,4 +64,4 @@ docs/evidencias/            capturas de tela e fluxogramas (Implementação I e 
 
 ## Como editar a base
 
-Cada registro tem: `id`, `tema`, `perguntas` (formas alternativas), `palavras_chave`, `resposta` (camada curta), `aprofundamento` (camada "Quer entender melhor?"), `fontes` (chaves da lista `fontes`), `limite`, `acao` e `seguranca`. Depois de editar, rode `pytest`: o teste `test_pergunta_cadastrada_acha_o_proprio_registro` avisa se uma pergunta nova cair no registro errado.
+Cada registro tem: `id`, `tema`, `perguntas` (formas alternativas), `palavras_chave`, `resumo` (uma frase, até 22 palavras), `resposta` (camada curta), `aprofundamento` (camada "Quer entender melhor?"), `fontes` (chaves da lista `fontes`), `limite`, `acao` e `seguranca`. A lista `glossario` tem `termo`, `formas` (como a palavra pode aparecer no texto) e `definicao`. Depois de editar, rode `pytest`: o teste `test_pergunta_cadastrada_acha_o_proprio_registro` avisa se uma pergunta nova cair no registro errado, e `tests/test_linguagem.py` avisa se uma resposta ficou difícil de ler (Flesch abaixo de 50) ou se o resumo passou de 22 palavras. Para medir a taxa de acerto em perguntas escritas como apostador: `python docs/avaliacao/avaliar.py`.

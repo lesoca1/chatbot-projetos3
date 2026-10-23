@@ -10,6 +10,7 @@ meus minhas seu sua seus suas isso isto esse essa este esta aquele aquela ao aos
 como qual quais quando onde ja ate mais muito muita muitos muitas tem ter
 sao ser foi era e esta estou estar ha hoje la aqui entao mas tambem so nao sim
 the
+oq q vc vcs to ta tah ne eh tbm msm ai pq
 """.split())
 
 # Sinônimos levados a uma forma comum antes da busca.
@@ -44,6 +45,30 @@ SINONIMOS = {
     "calcular": "calcul",
     "calculando": "calcul",
     "calculado": "calcul",
+    # Implementação III: palavras do dia a dia de quem aposta.
+    "lucra": "lucro",
+    "lucrar": "lucro",
+    "lucros": "lucro",
+    "lucrando": "lucro",
+    "multiplas": "multipla",
+    "combinada": "multipla",
+    "combinadas": "multipla",
+    "conto": "reais",
+    "contos": "reais",
+    "pila": "reais",
+    "influencer": "influenciador",
+    "influencers": "influenciador",
+    "influenciadores": "influenciador",
+    "insta": "redes",
+    "instagram": "redes",
+    "tiktok": "redes",
+    "anuncio": "propaganda",
+    "anuncios": "propaganda",
+    "propagandas": "propaganda",
+    "favoritos": "favorito",
+    "seguidas": "seguida",
+    "seguidos": "seguida",
+    "seguido": "seguida",
 }
 
 

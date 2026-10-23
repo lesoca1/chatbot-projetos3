@@ -3,10 +3,14 @@
 Cada forma alternativa de pergunta de um registro vira um documento. A nota do
 registro é a maior nota entre os seus documentos. Abaixo do limiar, o assistente
 diz que a base não cobre a pergunta em vez de improvisar.
+
+Palavras que não existem na base são trocadas pela palavra da base mais
+parecida, para tolerar erros de digitação ("handcap" vira "handicap").
 """
 
 import math
 from collections import Counter
+from difflib import get_close_matches
 from dataclasses import dataclass
 
 from .texto import tokens
@@ -17,6 +21,8 @@ LIMIAR_NOTA = 5.5
 LIMIAR_COBERTURA = 0.34
 # Pergunta curta em que todas as palavras aparecem no registro, como "o que é probabilidade".
 LIMIAR_NOTA_COBERTURA_TOTAL = 3.0
+# Semelhança mínima para corrigir uma palavra digitada errado (0 a 1).
+SEMELHANCA_CORRECAO = 0.8
 
 
 @dataclass
@@ -44,6 +50,16 @@ class IndiceBM25:
         for _, d in self.docs:
             df.update(set(d))
         self.idf = {t: math.log(1 + (self.n - f + 0.5) / (f + 0.5)) for t, f in df.items()}
+        self._correcoes: dict[str, str | None] = {}
+
+    def corrigir(self, palavra: str) -> str:
+        """Palavra fora do vocabulário da base vira a mais parecida, se houver uma bem próxima."""
+        if palavra in self.idf or len(palavra) < 4 or palavra.isdigit():
+            return palavra
+        if palavra not in self._correcoes:
+            achadas = get_close_matches(palavra, self.idf.keys(), n=1, cutoff=SEMELHANCA_CORRECAO)
+            self._correcoes[palavra] = achadas[0] if achadas else None
+        return self._correcoes[palavra] or palavra
 
     def _nota(self, consulta: list[str], doc: list[str]) -> float:
         tf = Counter(doc)
@@ -56,7 +72,7 @@ class IndiceBM25:
         return nota
 
     def buscar(self, pergunta: str, k: int = 3) -> list[Resultado]:
-        consulta = tokens(pergunta)
+        consulta = [self.corrigir(t) for t in tokens(pergunta)]
         if not consulta:
             return []
         melhores: dict[str, Resultado] = {}
