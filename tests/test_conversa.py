@@ -71,7 +71,7 @@ def test_seguimento_sem_cenario_anterior_nao_inventa():
 def test_aposta_unica_na_conversa():
     r = A.responder("Quanto recebo se apostar R$ 10 com odd 2,5?")
     assert r.registro["id"] == "calcular_retorno"
-    assert any("R$ 25,00" in f for f in r.calculo)
+    assert any("R$ 25:" in f for f in r.calculo)  # sem centavos quando o valor é inteiro
 
 
 @pytest.mark.parametrize("texto", [
@@ -93,3 +93,64 @@ def test_entrada_invalida_explica_o_erro():
     r = A.responder("aposto R$ 50 por semana há 5 anos com odd 0,9 e 50% de chance")
     assert r.simulacao["erros"]
     assert any("odd" in f for f in r.calculo)
+
+
+# ---------- Testes e Validação II: correções apontadas nos testes ----------
+
+from assistente.explicacao import aviso_equilibrio, dinheiro, explicar, maximo_que_perde  # noqa: E402
+from assistente.simulador import simular  # noqa: E402
+
+
+@pytest.mark.parametrize("odd,n", [(1.90, 52), (2.00, 49), (1.80, 55), (2.50, 39)])
+def test_maximo_de_acertos_que_ainda_perde(odd, n):
+    assert maximo_que_perde(odd) == n
+    assert odd * n / 100 < 1 <= odd * (n + 1) / 100  # n perde; n + 1 já empata ou ganha
+
+
+def test_frase_do_equilibrio_sem_contradicao():
+    # Testes I: "quem acerta menos que pelo menos 53 de cada 100 perde".
+    c = Cenario(20, 2, "semana", 1, odd=1.90, probabilidade=0.55)
+    texto = " ".join(explicar(c, simular(c)))
+    assert "menos que pelo menos" not in texto and "menos que mais de" not in texto
+    assert "quem acerta 52 de cada 100 ou menos já perde" in texto
+    assert aviso_equilibrio(2.0).startswith("Com odd 2,00, quem acerta 49 de cada 100 ou menos")
+
+
+def test_ganho_medio_oferece_excesso_de_confianca():
+    r = A.responder("aposto 100 reais por semana há 2 anos, odd média 2,00, acerto 52%")
+    assert r.sugestoes == ["O que é excesso de confiança?"]
+    assert A.responder(r.sugestoes[0]).registro["id"] == "excesso_confianca"
+
+
+def test_falta_de_dados_oferece_exemplo_com_um_clique():
+    r = A.responder("aposto 30 reais por semana faz 6 meses")
+    assert r.sugestoes == ["E com odd 1,80 e 50% de chance?"]
+    r2 = A.responder(r.sugestoes[0], r.cenario)
+    assert r2.tipo == "simulacao" and r2.cenario.odd == 1.80 and r2.cenario.probabilidade == 0.50
+    assert r2.cenario.valor_por_aposta == 30
+
+
+def test_cenario_de_outra_pessoa_nao_fala_em_suas_apostas():
+    r = A.responder("meu filho aposta 50 reais por semana há 3 anos")
+    assert r.cenario.terceiro
+    texto = r.resumo + " ".join(r.calculo)
+    assert "suas apostas" not in texto and "você perderia" not in texto
+    r2 = A.responder("E com odd 1,80 e 50% de chance?", r.cenario)
+    assert r2.resumo == "Em 3 anos, quem aposta assim perderia em média R$ 780 dos R$ 7.800 apostados."
+
+
+def test_idade_nao_vira_duracao():
+    assert "anos" not in extrair("tenho 16 anos posso apostar")
+    assert A.responder("tenho 16 anos posso apostar").registro["id"] == "regras_apostador"
+    assert extrair("aposto 20 reais por semana faz 2 anos")["anos"] == 2
+
+
+@pytest.mark.parametrize("v,esperado", [(7.8, "R$ 8"), (0.4, "menos de R$ 1"), (1300, "R$ 1.300"), (-52.4, "− R$ 52")])
+def test_valores_sem_centavos(v, esperado):
+    assert dinheiro(v) == esperado
+
+
+def test_aposta_sem_a_palavra_reais():
+    r = A.responder("apostei 20 na odd 2,50 e ganhei, quanto vou receber?")
+    assert r.registro["id"] == "calcular_retorno"
+    assert r.calculo[0].startswith("Se acertar, você recebe R$ 50: os R$ 20 de volta mais R$ 30 de lucro.")

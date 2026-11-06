@@ -11,6 +11,7 @@ como qual quais quando onde ja ate mais muito muita muitos muitas tem ter
 sao ser foi era e esta estou estar ha hoje la aqui entao mas tambem so nao sim
 the
 oq q vc vcs to ta tah ne eh tbm msm ai pq
+mano mana vei slk po todo toda todos todas
 """.split())
 
 # Sinônimos levados a uma forma comum antes da busca.
@@ -87,8 +88,17 @@ def radical(palavra: str) -> str:
     return palavra
 
 
+# Idade ("tenho 16 anos", "17 anos de idade") não é duração de apostas: vira a palavra "idade".
+RE_IDADE = re.compile(r"\b(?:tenho|com) \d{1,2} anos\b(?! (?:que|apostando|de aposta))|\b\d{1,2} anos de idade\b")
+
+
+def trocar_idade(texto: str) -> str:
+    """Recebe texto já em minúsculas e sem acento."""
+    return RE_IDADE.sub(" idade ", texto)
+
+
 def normalizar(texto: str) -> str:
-    texto = sem_acento(texto.lower())
+    texto = trocar_idade(sem_acento(texto.lower()))
     texto = re.sub(r"(\d),(\d)", r"\1.\2", texto)
     return re.sub(r"[^a-z0-9.$ ]+", " ", texto)
 

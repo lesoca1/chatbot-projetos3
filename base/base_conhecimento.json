@@ -1,6 +1,6 @@
 {
-  "versao": "3.0",
-  "data_revisao": "23/10/2026",
+  "versao": "3.1",
+  "data_revisao": "06/11/2026",
   "descricao": "Base de conhecimento do assistente sobre apostas esportivas (grupo Apostas esportivas, Projetos III, FGV EESP). O assistente responde apenas com o conteúdo deste arquivo.",
   "fontes": {
     "LEI14790": "BRASIL. Lei nº 14.790, de 29 de dezembro de 2023. Dispõe sobre a modalidade lotérica de apostas de quota fixa. Disponível em: planalto.gov.br.",
@@ -34,7 +34,11 @@
     "MONTECARLO1949": "METROPOLIS, N.; ULAM, S. The Monte Carlo method. Journal of the American Statistical Association, v. 44, n. 247, p. 335-341, 1949.",
     "ASSAF": "ASSAF NETO, A. Matemática financeira e suas aplicações. São Paulo: Atlas.",
     "GLOSSARIO_GRUPO": "GRUPO APOSTAS ESPORTIVAS. Glossário de termos usados por apostadores, elaborado pelo grupo a partir das fontes desta base. Projetos III, FGV EESP, 2026.",
-    "CDC": "BRASIL. Lei nº 8.078, de 11 de setembro de 1990. Código de Defesa do Consumidor."
+    "CDC": "BRASIL. Lei nº 8.078, de 11 de setembro de 1990. Código de Defesa do Consumidor.",
+    "PORT615": "MINISTÉRIO DA FAZENDA. Portaria Normativa SPA/MF nº 615, de 16 de abril de 2024. Transações de pagamento em apostas de quota fixa. Disponível em: gov.br/fazenda.",
+    "PORT1231": "MINISTÉRIO DA FAZENDA. Portaria SPA/MF nº 1.231, de 31 de julho de 2024. Jogo responsável, publicidade e direitos do apostador (art. 4º: limites, pausas e autoexclusão). Disponível em: gov.br/fazenda.",
+    "AUTOEXCLUSAO": "MINISTÉRIO DA FAZENDA. Secretaria de Prêmios e Apostas. Plataforma Centralizada de Autoexclusão, lançada em dezembro de 2025. Disponível em: gov.br.",
+    "VETOS2024": "BRASIL. Promulgação de partes vetadas da Lei nº 14.790/2023 (art. 31, §§ 1º a 3º), DOU de 22 de maio de 2024."
   },
   "glossario": [
     {
@@ -324,14 +328,17 @@
         "oq é odd",
         "O que quer dizer odd 2?",
         "Pra que serve a odd?",
-        "O que é cotação na aposta?"
+        "O que é cotação na aposta?",
+        "Essa tal de odd é o quê?",
+        "Pra que serve o número do lado do time?"
       ],
       "palavras_chave": [
         "odd",
         "odds",
         "cotação",
         "decimal",
-        "multiplicador"
+        "multiplicador",
+        "número do lado"
       ],
       "resumo": "A odd é o número que diz quanto você recebe se acertar.",
       "resposta": "Você recebe o valor apostado vezes a odd. Com R$ 10 na odd 2,00, você recebe R$ 20. Odd alta paga mais, mas o resultado é menos provável. Odd baixa paga menos, mas o resultado é mais provável.",
@@ -357,7 +364,12 @@
         "Quanto ganho apostando com odd 2?",
         "Se eu botar 20 reais na odd 3 quanto volta?",
         "Quanto volta se eu ganhar a aposta?",
-        "Como calcular quanto vou ganhar?"
+        "Como calcular quanto vou ganhar?",
+        "Ganhei a aposta, quanto vou receber?",
+        "Quanto retorna uma aposta?",
+        "Aposta de 20 reais com odd 2,50 retorna quanto?",
+        "Se eu ganhar, recebo quanto?",
+        "Quanto volta se a aposta bater?"
       ],
       "palavras_chave": [
         "recebo",
@@ -365,7 +377,11 @@
         "lucro",
         "retorno",
         "calcular",
-        "quanto"
+        "quanto",
+        "receber",
+        "retorna",
+        "volta",
+        "bater"
       ],
       "resumo": "Se acertar, você recebe o valor apostado vezes a odd; se errar, perde o que apostou.",
       "resposta": "Exemplo: R$ 10 na odd 1,80. Se acertar, recebe R$ 18. Desses, R$ 10 são o seu dinheiro de volta e R$ 8 são o lucro. Se errar, perde os R$ 10.",
@@ -388,14 +404,16 @@
         "Por que a odd da múltipla é tão alta?",
         "Múltipla compensa?",
         "O que é bilhete com vários jogos?",
-        "Por que a múltipla paga tanto?"
+        "Por que a múltipla paga tanto?",
+        "Bilhete com muitos jogos vale a pena?"
       ],
       "palavras_chave": [
         "múltipla",
         "multipla",
         "combinada",
         "acumulada",
-        "bilhete"
+        "bilhete",
+        "muitos jogos"
       ],
       "resumo": "A múltipla paga muito porque é muito difícil acertar todos os jogos.",
       "resposta": "Na múltipla você junta vários jogos em um só bilhete. Só ganha se acertar todos. As odds se multiplicam, e por isso o prêmio parece alto. Mas a chance de acertar tudo cai a cada jogo que entra. E a vantagem da casa também se soma a cada jogo.",
@@ -449,14 +467,16 @@
         "A casa de apostas sempre ganha?",
         "Por que as bets lucram tanto?",
         "Como a bet ganha dinheiro?",
-        "Por que a casa nunca perde?"
+        "Por que a casa nunca perde?",
+        "Por que a bet nunca quebra?"
       ],
       "palavras_chave": [
         "casa ganha",
         "lucro da casa",
         "ggr",
         "receita",
-        "sempre ganha"
+        "sempre ganha",
+        "quebra"
       ],
       "resumo": "A casa paga um pouco menos do que seria justo em cada aposta e, somando tudo, sempre fica com uma parte.",
       "resposta": "Em uma aposta você pode ganhar da casa. Mas a casa recebe milhões de apostas. Em cada uma, ela paga um pouco menos do que a chance do resultado justificaria. Somando tudo, sobra para ela uma parte do que foi apostado. Essa sobra se chama receita bruta de jogo, ou GGR.",
@@ -479,14 +499,17 @@
         "Odd 1,80 é quantos por cento?",
         "Qual a probabilidade de uma odd?",
         "O que é probabilidade na aposta?",
-        "Como saber a chance pela odd?"
+        "Como saber a chance pela odd?",
+        "Odd é a mesma coisa que probabilidade?",
+        "A odd é a probabilidade?"
       ],
       "palavras_chave": [
         "probabilidade implícita",
         "porcentagem",
         "chance",
         "converter",
-        "implicita"
+        "implicita",
+        "mesma coisa"
       ],
       "resumo": "É a chance que a odd sugere: 1 dividido pela odd.",
       "resposta": "Odd 2,00 sugere 50% de chance (1 ÷ 2). Odd 1,80 sugere cerca de 56%. Esse número não é a chance real do jogo. Ele já inclui a parte da casa. Serve para comparar odds e para ver quanto você precisaria acertar para não perder.",
@@ -622,7 +645,6 @@
         "O que é valor esperado?",
         "Como calcular o valor esperado de uma aposta?",
         "Vale a pena apostar?",
-        "Apostar compensa?",
         "Qual o retorno médio de uma aposta?",
         "Como calcular o valor esperado de uma aposta?",
         "Quanto perco em média por aposta?",
@@ -664,7 +686,14 @@
         "Bet dá dinheiro?",
         "Vale a pena bet?",
         "Tem gente que vive de bet?",
-        "Bet é renda extra?"
+        "Bet é renda extra?",
+        "Bet é furada?",
+        "Dá para ganhar dinheiro com bet ou é furada?",
+        "Apostar compensa?",
+        "Aposta compensa?",
+        "Alguém fica rico apostando?",
+        "Com estudo e estatística dá para lucrar?",
+        "É possível ganhar dinheiro apostando?"
       ],
       "palavras_chave": [
         "ganhar dinheiro",
@@ -674,7 +703,9 @@
         "rico",
         "renda",
         "lucrar",
-        "lucro"
+        "lucro",
+        "furada",
+        "compensa"
       ],
       "resumo": "Não existe jeito garantido de ganhar; na média, quem aposta perde.",
       "resposta": "Dá para ganhar algumas apostas. Mas, com o tempo, a parte da casa tende a comer os ganhos. A maioria das pessoas termina no prejuízo. Promessa de lucro certo ou de renda com apostas não tem base na matemática.",
@@ -726,14 +757,19 @@
         "É melhor apostar ou guardar dinheiro?",
         "Bet é investimento?",
         "Melhor bet ou poupança?",
-        "Apostar é igual investir?"
+        "Apostar é igual investir?",
+        "É melhor colocar dinheiro na bet ou no tesouro?",
+        "Vale mais apostar ou deixar no CDB?"
       ],
       "palavras_chave": [
         "investir",
         "investimento",
         "aplicação",
         "poupança",
-        "diferença"
+        "diferença",
+        "tesouro direto",
+        "cdb",
+        "tesouro"
       ],
       "resumo": "Aposta não é investimento: na média, a aposta tira dinheiro de você e o investimento rende.",
       "resposta": "Um investimento tende a render com o tempo, por juros ou lucro de empresas. A aposta só passa dinheiro de quem perde para quem ganha, e a casa fica com uma parte. Por isso, na média, quem aposta perde. Investimentos comuns rendem na média, mas também têm riscos.",
@@ -791,7 +827,8 @@
         "Depois de muitas derrotas a vitória está perto?",
         "Perdi 5 seguidas, agora vai dar green?",
         "Depois de muitas derrotas a vitória vem?",
-        "Já perdi tanto que agora tenho que ganhar?"
+        "Já perdi tanto que agora tenho que ganhar?",
+        "Já perdi várias seguidas, a próxima é minha?"
       ],
       "palavras_chave": [
         "falácia do jogador",
@@ -1063,7 +1100,9 @@
         "Existe tratamento para vício em apostas?",
         "Onde pedir ajuda para parar de jogar?",
         "Tem tratamento para vício em aposta?",
-        "Quem ajuda quem quer parar de apostar?"
+        "Quem ajuda quem quer parar de apostar?",
+        "Tem lugar grátis para tratar vício em jogo?",
+        "O SUS atende quem é viciado em aposta?"
       ],
       "palavras_chave": [
         "ajuda",
@@ -1072,7 +1111,10 @@
         "apoio",
         "telefone",
         "caps",
-        "cvv"
+        "cvv",
+        "grátis",
+        "tratar",
+        "sus"
       ],
       "resumo": "Há ajuda gratuita: CAPS do SUS, Jogadores Anônimos e CVV (telefone 188).",
       "resposta": "Você não precisa resolver isso sozinho. O CAPS (Centro de Atenção Psicossocial) do SUS atende na sua cidade. Os Jogadores Anônimos têm grupos de apoio. O CVV atende pelo 188, 24 horas, quando estiver difícil. Você também pode pedir autoexclusão nas bets para bloquear o acesso.",
@@ -1128,20 +1170,26 @@
         "Posso pedir para não conseguir apostar?",
         "Como parar de receber ofertas das bets?",
         "Como me excluir da bet?",
-        "Como pedir bloqueio na bet?"
+        "Como pedir bloqueio na bet?",
+        "Quero me bloquear das casas de aposta.",
+        "Como faço para nenhuma bet aceitar meu CPF?",
+        "Como bloquear meu CPF em todas as bets?"
       ],
       "palavras_chave": [
         "autoexclusão",
         "autoexclusao",
         "bloquear",
         "bloqueio",
-        "excluir conta"
+        "excluir conta",
+        "cpf"
       ],
       "resumo": "Autoexclusão é pedir para a bet bloquear você de apostar por um tempo ou para sempre.",
-      "resposta": "As empresas autorizadas no Brasil devem oferecer essa opção. Procure a área de jogo responsável na sua conta. Confira as regras mais recentes no site da Secretaria de Prêmios e Apostas.",
-      "aprofundamento": "A Lei nº 14.790/2023 e as normas da Secretaria de Prêmios e Apostas (SPA/MF) exigem práticas de jogo responsável dos operadores, como limites e autoexclusão. Como as regras e ferramentas mudam com o tempo, a fonte oficial atualizada é o site da SPA em gov.br/fazenda. Também ajuda bloquear aplicativos no celular e pedir ao banco limites para transferências.",
+      "resposta": "Desde dezembro de 2025, o governo tem uma plataforma única de autoexclusão, no gov.br. Com o seu CPF, você bloqueia todas as bets autorizadas de uma vez. O bloqueio vale de 1 a 12 meses ou sem prazo. Ele fecha as contas, impede contas novas e corta a propaganda dirigida a você. Cada bet também tem essa opção na área de jogo responsável.",
+      "aprofundamento": "A Lei nº 14.790/2023 e a Portaria SPA/MF nº 1.231/2024 (art. 4º) obrigam as empresas autorizadas a oferecer autoexclusão por prazo fixo ou para sempre, além de limites e pausas. A plataforma centralizada, da Secretaria de Prêmios e Apostas, junta o pedido num só lugar. Ela não alcança sites sem autorização. Também ajuda bloquear aplicativos no celular e pedir ao banco limites para transferências. Conferido nas fontes oficiais em 06/11/2026.",
       "fontes": [
         "LEI14790",
+        "PORT1231",
+        "AUTOEXCLUSAO",
         "SPA"
       ],
       "limite": "Regras sujeitas a mudança; confira a data e o texto na fonte oficial.",
@@ -1198,7 +1246,8 @@
         "Essa casa de apostas é legal?",
         "Como saber se a bet é confiável?",
         "Qual o melhor site de apostas?",
-        "Como saber se a bet é legal?"
+        "Como saber se a bet é legal?",
+        "Como sei se a bet que uso é regularizada?"
       ],
       "palavras_chave": [
         "autorizada",
@@ -1206,7 +1255,8 @@
         "lista",
         "bet.br",
         "legalizada",
-        "site"
+        "site",
+        "regularizada"
       ],
       "resumo": "Bets autorizadas usam endereço terminado em .bet.br e estão na lista oficial do governo.",
       "resposta": "A lista fica no site da Secretaria de Prêmios e Apostas, do Ministério da Fazenda. Se a empresa não está na lista, ela não está autorizada a operar no Brasil.",
@@ -1229,7 +1279,8 @@
         "Quem não pode apostar?",
         "Quais são os direitos do apostador?",
         "Menor de idade pode jogar bet?",
-        "Posso apostar no cartão de crédito?"
+        "Posso apostar no cartão de crédito?",
+        "Tenho 16 anos, posso apostar?"
       ],
       "palavras_chave": [
         "idade",
@@ -1237,7 +1288,9 @@
         "18 anos",
         "cartão de crédito",
         "proibido",
-        "direitos"
+        "direitos",
+        "posso apostar",
+        "idade mínima"
       ],
       "resumo": "Menores de 18 anos não podem apostar, e não se paga aposta com cartão de crédito.",
       "resposta": "A proibição do cartão de crédito serve para evitar que a pessoa aposte dinheiro que não tem. Quem aposta tem direito a informações claras e a ferramentas de limite e de autoexclusão.",
@@ -1266,7 +1319,8 @@
         "Em quem apostar no clássico?",
         "Me passa um palpite pro jogo de hoje",
         "Qual time vai ganhar hoje?",
-        "Me dá uma dica de aposta"
+        "Me dá uma dica de aposta",
+        "Me diz um jogo bom para apostar hoje."
       ],
       "palavras_chave": [
         "palpite",
@@ -1278,7 +1332,8 @@
         "indica",
         "quem ganha",
         "resultado do jogo",
-        "clássico"
+        "clássico",
+        "jogo bom"
       ],
       "resumo": "Não dou palpites nem indico apostas, times ou odds.",
       "resposta": "Sou um assistente educativo. Explico como as apostas funcionam e quais são os riscos. Se quiser, mostro quanto uma odd paga ou quanto você perderia em média com os seus números.",
@@ -1303,7 +1358,9 @@
         "Tem estratégia para ganhar na bet?",
         "Martingale funciona?",
         "Como alavancar a banca?",
-        "Qual o segredo para ganhar na bet?"
+        "Qual o segredo para ganhar na bet?",
+        "Qual o método para lucrar todo dia na bet?",
+        "Qual a melhor tática para ganhar na bet?"
       ],
       "palavras_chave": [
         "estratégia",
@@ -1312,7 +1369,8 @@
         "maximizar",
         "aumentar ganhos",
         "vencer a casa",
-        "método"
+        "método",
+        "tática"
       ],
       "resumo": "Não indico estratégias para ganhar; nenhuma muda o fato de que, na média, cada aposta perde.",
       "resposta": "Posso mostrar como o valor, a frequência e a odd mudam a perda média e o risco. Dobrar a aposta depois de perder (o martingale) não muda a perda média. E pode levar a uma perda muito grande em pouco tempo.",
@@ -1393,7 +1451,8 @@
         "Tigrinho paga mesmo?",
         "Aviator é aposta esportiva?",
         "Jogo do aviãozinho vale a pena?",
-        "Fortune Tiger é confiável?"
+        "Fortune Tiger é confiável?",
+        "O jogo do tigre dá dinheiro?"
       ],
       "palavras_chave": [
         "tigrinho",
@@ -1401,7 +1460,8 @@
         "caça-níquel",
         "slot",
         "roleta",
-        "aviator"
+        "aviator",
+        "tigre"
       ],
       "resumo": "Jogos de cassino online, como o tigrinho, também são feitos para a casa ficar com uma parte do dinheiro.",
       "resposta": "Este assistente trata de apostas esportivas. Caça-níqueis e jogos como o tigrinho seguem a mesma lógica: no longo prazo, a casa ganha. As rodadas são muito rápidas. Por isso a pessoa aposta muitas vezes e a perda somada cresce rápido.",
@@ -1578,7 +1638,8 @@
         "Bônus de bet é dinheiro de graça?",
         "Bônus de cadastro vale a pena?",
         "O que é rollover de bônus?",
-        "O que é freebet?"
+        "O que é freebet?",
+        "Bônus de primeiro depósito compensa?"
       ],
       "palavras_chave": [
         "bônus",
@@ -1587,11 +1648,12 @@
         "boas-vindas",
         "promoção",
         "grátis",
-        "freebet"
+        "freebet",
+        "primeiro depósito"
       ],
       "resumo": "Bônus servem para fazer você apostar mais; quase nunca são dinheiro de graça.",
-      "resposta": "Muitas vezes o bônus só pode ser sacado depois de apostar várias vezes o valor recebido. Isso se chama rollover. Cada uma dessas apostas perde um pouco na média. A Lei nº 14.790/2023 limita esse tipo de oferta. Confira as regras atuais na Secretaria de Prêmios e Apostas.",
-      "aprofundamento": "Exemplo hipotético: um bônus de R$ 100 com rollover de 10 vezes exige R$ 1.000 em apostas. Se a casa retiver em média 5% do que é apostado, a perda esperada nessas apostas é de R$ 50, metade do bônus, e há risco real de perder tudo antes de cumprir a regra. Receber algo de graça também tende a fazer a pessoa arriscar mais (efeito do dinheiro da casa). As regras de promoção vêm da lei e das portarias da SPA/MF e podem mudar.",
+      "resposta": "A Lei nº 14.790/2023 proíbe a bet autorizada de dar bônus, adiantamento ou vantagem para você apostar. Se um site oferece bônus de boas-vindas, desconfie e veja se ele está na lista oficial. Onde há bônus, ele quase sempre só pode ser sacado depois de apostar várias vezes o valor recebido. Isso se chama rollover. Cada uma dessas apostas perde um pouco na média.",
+      "aprofundamento": "Exemplo hipotético: um bônus de R$ 100 com rollover de 10 vezes exige R$ 1.000 em apostas. Se a casa retiver em média 5% do que é apostado, a perda esperada nessas apostas é de R$ 50, metade do bônus, e há risco real de perder tudo antes de cumprir a regra. Receber algo de graça também tende a fazer a pessoa arriscar mais (efeito do dinheiro da casa). A proibição está no art. 29 da Lei nº 14.790/2023, que veda conceder, sob qualquer forma, adiantamento, antecipação, bonificação ou vantagem prévia para a aposta, mesmo como promoção. Conferido em 06/11/2026.",
       "fontes": [
         "LEI14790",
         "SPA",
@@ -1831,7 +1893,8 @@
         "O simulador prevê se vou ganhar?",
         "Me explica o simulador",
         "Para que serve o simulador?",
-        "Como uso o simulador?"
+        "Como uso o simulador?",
+        "Como funciona a simulação de vocês?"
       ],
       "palavras_chave": [
         "simulador",
@@ -2128,7 +2191,9 @@
         "Alguém da minha família aposta demais, como ajudar?",
         "Meu irmão está viciado em bet, o que faço?",
         "Meu marido aposta demais, como ajudo?",
-        "Como falar com alguém que aposta muito?"
+        "Como falar com alguém que aposta muito?",
+        "Minha mãe gasta muito com bet, como converso com ela?",
+        "Meu filho aposta demais, como converso com ele?"
       ],
       "palavras_chave": [
         "ajudar",
@@ -2254,7 +2319,8 @@
         "Prometeram lucro certo nas bets, é verdade?",
         "Pedir taxa para sacar é golpe?",
         "A bet pediu taxa para eu sacar, é golpe?",
-        "Como saber se é golpe de aposta?"
+        "Como saber se é golpe de aposta?",
+        "A bet está cobrando uma taxa para liberar meu dinheiro."
       ],
       "palavras_chave": [
         "golpe",
@@ -2265,7 +2331,9 @@
         "lucro certo",
         "falso",
         "sacar",
-        "taxa para sacar"
+        "taxa para sacar",
+        "taxa para liberar",
+        "cobrando taxa"
       ],
       "resumo": "Desconfie de lucro garantido, de sites sem .bet.br e de taxa para liberar saque.",
       "resposta": "Nenhuma aposta tem resultado certo. Perfis que pedem dinheiro para passar palpites também são sinal de golpe. Na dúvida, não transfira nada e confira a empresa na lista oficial da Secretaria de Prêmios e Apostas.",
@@ -2297,9 +2365,10 @@
       ],
       "resumo": "Sim. Pela Lei nº 14.790/2023, o ganho com apostas paga Imposto de Renda de 15%.",
       "resposta": "O imposto é calculado no ano, sobre o ganho que passa da faixa de isenção da tabela do imposto. As regras mudam. Confira a versão atual na Receita Federal.",
-      "aprofundamento": "Ganho líquido é o total de prêmios do ano menos as perdas em apostas da mesma natureza. A lei também prevê tributos pagos pelas empresas sobre a receita delas. Como o assistente não consulta a internet, valores de faixas e mudanças posteriores na lei devem ser conferidos na Receita Federal e na SPA, com a data da consulta.",
+      "aprofundamento": "Ganho líquido é o total de prêmios do ano menos as perdas em apostas da mesma natureza. A alíquota é de 15% (art. 31 da Lei nº 14.790/2023). Os §§ 1º a 3º, que criam a conta anual e a isenção até a primeira faixa da tabela do Imposto de Renda, tinham sido vetados e voltaram a valer em maio de 2024. Valores de faixas mudam todo ano: confira na Receita Federal, com a data da consulta. Conferido em 06/11/2026.",
       "fontes": [
         "LEI14790",
+        "VETOS2024",
         "RFB"
       ],
       "limite": "Não é orientação tributária. Confira a regra atual na Receita Federal.",
@@ -2329,6 +2398,7 @@
       "resposta": "Cartão de crédito, criptomoedas e dinheiro vivo não são aceitos. Essas regras são da Secretaria de Prêmios e Apostas e podem mudar. Confira a versão atual no site da SPA.",
       "aprofundamento": "Exigir conta no nome do apostador ajuda a evitar o uso por menores e a lavagem de dinheiro. Proibir o cartão de crédito evita que a pessoa aposte dinheiro que ainda não tem. As regras de pagamento estão em portaria da SPA/MF e podem mudar; o grupo registra a data da última conferência na fonte oficial.",
       "fontes": [
+        "PORT615",
         "SPA",
         "LEI14790"
       ],
@@ -2471,7 +2541,8 @@
         "Por que a odd muda antes do jogo?",
         "Por que as odds mudam?",
         "Por que a odd caiu?",
-        "A odd subiu, o que aconteceu?"
+        "A odd subiu, o que aconteceu?",
+        "Por que a cotação do jogo mudou?"
       ],
       "palavras_chave": [
         "muda",
@@ -2522,7 +2593,8 @@
       "perguntas": [
         "Vale apostar em placar exato?",
         "O que é aposta em placar exato?",
-        "Por que o placar exato paga tanto?"
+        "Por que o placar exato paga tanto?",
+        "Acertar o placar do jogo compensa?"
       ],
       "palavras_chave": [
         "placar exato",
@@ -2545,7 +2617,8 @@
       "perguntas": [
         "Acerto mais da metade e mesmo assim perco, por quê?",
         "Como posso acertar muito e perder dinheiro?",
-        "Quantas apostas preciso acertar para não perder?"
+        "Quantas apostas preciso acertar para não perder?",
+        "Acerto muito e estou no prejuízo, por quê?"
       ],
       "palavras_chave": [
         "acerto",
@@ -2553,7 +2626,8 @@
         "metade",
         "mesmo assim",
         "não perder",
-        "empatar"
+        "empatar",
+        "prejuízo"
       ],
       "resumo": "Acertar muito não basta: com odd baixa, cada erro apaga vários acertos.",
       "resposta": "Para não perder, você precisa acertar mais do que 1 dividido pela odd. Com odd 1,50, precisa acertar mais de 67 de cada 100 apostas. Quem acerta 60 de cada 100 nessa odd perde dinheiro.",
@@ -2571,12 +2645,15 @@
       "perguntas": [
         "O que é surebet?",
         "O que é arbitragem em apostas?",
-        "Surebet dá lucro garantido?"
+        "Surebet dá lucro garantido?",
+        "Arbitragem entre casas dá lucro garantido?",
+        "Arbitragem de odds funciona?"
       ],
       "palavras_chave": [
         "surebet",
         "arbitragem",
-        "garantido"
+        "garantido",
+        "casas diferentes"
       ],
       "resumo": "Surebet é apostar em todos os resultados em casas diferentes para tentar travar um lucro.",
       "resposta": "Isso só funciona quando duas casas erram as odds ao mesmo tempo. Essas diferenças são raras, pequenas e somem rápido. As casas podem limitar contas de quem ganha com frequência. Não indico como fazer.",
@@ -2633,9 +2710,9 @@
       ],
       "resumo": "Bets autorizadas devem oferecer limites de depósito e de tempo na área de jogo responsável.",
       "resposta": "Procure \"jogo responsável\" no menu da sua conta. Lá você define quanto pode depositar ou quanto tempo pode jogar por dia, semana ou mês. Defina o limite antes de apostar, com calma. Se o limite não bastar, existe a autoexclusão.",
-      "aprofundamento": "As normas da Secretaria de Prêmios e Apostas exigem ferramentas de jogo responsável nas empresas autorizadas. O nome e o lugar da opção mudam de uma bet para outra. Confira as regras atuais no site da SPA. Limites no app do banco, como o limite de Pix, também ajudam.",
+      "aprofundamento": "A Portaria SPA/MF nº 1.231/2024 (art. 4º) obriga as empresas autorizadas a oferecer limite por tempo, por perda e por total depositado, alertas de tempo de uso, pausas e autoexclusão. A empresa deve sugerir essas ferramentas a todos, mesmo sem pedido. O nome e o lugar da opção mudam de uma bet para outra. Limites no app do banco, como o limite de Pix, também ajudam. Conferido em 06/11/2026.",
       "fontes": [
-        "SPA",
+        "PORT1231",
         "LEI14790",
         "NUDGE2008"
       ],
@@ -2649,14 +2726,18 @@
       "perguntas": [
         "Como sei quanto já perdi na bet?",
         "Como ver quanto gastei com apostas?",
-        "Como calcular meu prejuízo nas apostas?"
+        "Como calcular meu prejuízo nas apostas?",
+        "Quero saber o total que perdi apostando.",
+        "Onde vejo quanto já depositei na bet?"
       ],
       "palavras_chave": [
         "quanto perdi",
         "quanto gastei",
         "histórico",
         "extrato",
-        "prejuízo"
+        "prejuízo",
+        "total que perdi",
+        "depositei"
       ],
       "resumo": "Some tudo o que você depositou e tire tudo o que sacou: o resultado é quanto saiu do seu bolso.",
       "resposta": "As bets autorizadas mostram na sua conta o histórico de depósitos e saques. O extrato do banco também mostra os Pix enviados para a bet. Olhar esse número, sem contar só os prêmios, dá uma visão real do que aconteceu.",
@@ -2676,7 +2757,9 @@
         "A bet não deixa eu sacar meu dinheiro",
         "A bet não paga, o que faço?",
         "Meu saque não caiu, o que fazer?",
-        "Onde reclamar de uma bet?"
+        "Onde reclamar de uma bet?",
+        "Meu saque está travado na bet.",
+        "A bet bloqueou minha conta e não devolve meu saldo."
       ],
       "palavras_chave": [
         "sacar",
@@ -2684,14 +2767,18 @@
         "não paga",
         "reclamar",
         "reclamação",
-        "procon"
+        "procon",
+        "travado",
+        "saldo",
+        "devolve"
       ],
       "resumo": "Confira se a bet é autorizada e, se for, reclame na empresa, no consumidor.gov.br ou no Procon.",
       "resposta": "Bets autorizadas têm endereço .bet.br e estão na lista oficial da Secretaria de Prêmios e Apostas. Elas devem pagar o saque na conta no seu nome. Se pedirem taxa para liberar o saque, desconfie: é sinal de golpe.",
-      "aprofundamento": "Quem aposta em empresa autorizada também tem os direitos do Código de Defesa do Consumidor. Guarde prints, e-mails e comprovantes. Reclame primeiro no atendimento da empresa. Se não resolver, use o consumidor.gov.br ou o Procon. Site sem autorização não tem essa proteção.",
+      "aprofundamento": "A Lei nº 14.790/2023 (art. 27) garante a quem aposta todos os direitos do Código de Defesa do Consumidor. A Portaria SPA/MF nº 615/2024 só aceita Pix, TED, débito e cartão pré-pago, e proíbe dinheiro vivo, cartão de crédito, boleto, cheque e criptomoedas. Guarde prints, e-mails e comprovantes. Reclame primeiro no atendimento da empresa. Se não resolver, use o consumidor.gov.br ou o Procon. Site sem autorização não tem essa proteção. Conferido em 06/11/2026.",
       "fontes": [
         "SPA",
         "LEI14790",
+        "PORT615",
         "CDC"
       ],
       "limite": "Não é orientação jurídica. Confira as regras na fonte oficial.",
@@ -2704,13 +2791,20 @@
       "perguntas": [
         "Se a bet é autorizada, é seguro apostar?",
         "Bet legalizada é segura?",
-        "Bet com .bet.br paga mais?"
+        "Bet com .bet.br paga mais?",
+        "Se o site é .bet.br, eu não perco dinheiro?",
+        "Site autorizado garante que não vou perder?",
+        "Bet autorizada é segura?",
+        "Se a bet é autorizada, estou protegido de perder?"
       ],
       "palavras_chave": [
         "autorizada",
         "legalizada",
         "segura",
-        "seguro"
+        "seguro",
+        "bet.br",
+        "não perco",
+        "protegido"
       ],
       "resumo": "Ser autorizada protege contra golpes e dá direitos, mas não protege contra perder dinheiro.",
       "resposta": "A empresa autorizada segue as regras brasileiras e é fiscalizada. Ela deve pagar prêmios e oferecer limites. Mas a parte da casa existe em todas as bets. Na média, quem aposta perde, em site autorizado ou não.",

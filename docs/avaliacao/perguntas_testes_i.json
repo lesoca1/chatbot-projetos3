@@ -1,0 +1,177 @@
+{
+  "descricao": "Perguntas das sessões simuladas da Testes e Validação I (perfis P1 a P5, tarefas 1, 2 e 5) com o gabarito fixado antes de rodar, em 30/10/2026. Cada item: perfil, tarefa, pergunta, registros aceitos. Na Testes e Validação II viraram teste de regressão.",
+  "perguntas": [
+    [
+      "P1",
+      "t1",
+      "mano da pra ganhar dinheiro com bet ou é furada?",
+      [
+        "ganhar_sempre"
+      ]
+    ],
+    [
+      "P1",
+      "t2a",
+      "oq é odd",
+      [
+        "odd_o_que_e",
+        "chance_real_vs_odd",
+        "probabilidade_implicita"
+      ]
+    ],
+    [
+      "P1",
+      "t2b",
+      "se eu apostar 20 conto na odd 2,50 quanto eu ganho",
+      [
+        "calcular_retorno"
+      ]
+    ],
+    [
+      "P1",
+      "t5",
+      "da pra viver so de aposta?",
+      [
+        "ganhar_sempre",
+        "estrategia_ganhar",
+        "sorte_habilidade"
+      ]
+    ],
+    [
+      "P2",
+      "t1",
+      "tem como tirar uma renda extra com aposta?",
+      [
+        "ganhar_sempre"
+      ]
+    ],
+    [
+      "P2",
+      "t2a",
+      "o que significa a odd",
+      [
+        "odd_o_que_e",
+        "chance_real_vs_odd",
+        "probabilidade_implicita"
+      ]
+    ],
+    [
+      "P2",
+      "t2b",
+      "20 reais na odd 2,5 da quanto",
+      [
+        "calcular_retorno"
+      ]
+    ],
+    [
+      "P2",
+      "t5",
+      "o tigrinho paga mesmo?",
+      [
+        "cassino_online"
+      ]
+    ],
+    [
+      "P3",
+      "t1",
+      "é possível ganhar dinheiro apostando em futebol?",
+      [
+        "ganhar_sempre"
+      ]
+    ],
+    [
+      "P3",
+      "t2a",
+      "o que é odd nas apostas",
+      [
+        "odd_o_que_e",
+        "chance_real_vs_odd",
+        "probabilidade_implicita"
+      ]
+    ],
+    [
+      "P3",
+      "t2b",
+      "quanto recebo se apostar R$ 20 numa odd de 2,50?",
+      [
+        "calcular_retorno"
+      ]
+    ],
+    [
+      "P3",
+      "t5",
+      "meu filho aposta demais, como converso com ele sobre isso?",
+      [
+        "ajudar_alguem"
+      ]
+    ],
+    [
+      "P4",
+      "t1",
+      "com estudo e estatística dá pra lucrar com aposta esportiva?",
+      [
+        "ganhar_sempre"
+      ]
+    ],
+    [
+      "P4",
+      "t2a",
+      "odd é a mesma coisa que probabilidade?",
+      [
+        "odd_o_que_e",
+        "chance_real_vs_odd",
+        "probabilidade_implicita"
+      ]
+    ],
+    [
+      "P4",
+      "t2b",
+      "aposta de 20 reais com odd 2,50 retorna quanto?",
+      [
+        "calcular_retorno"
+      ]
+    ],
+    [
+      "P4",
+      "t5",
+      "arbitragem entre casas diferentes da lucro garantido?",
+      [
+        "surebet"
+      ]
+    ],
+    [
+      "P5",
+      "t1",
+      "apostar compensa?",
+      [
+        "ganhar_sempre"
+      ]
+    ],
+    [
+      "P5",
+      "t2a",
+      "como funciona a odd?",
+      [
+        "odd_o_que_e",
+        "chance_real_vs_odd",
+        "probabilidade_implicita"
+      ]
+    ],
+    [
+      "P5",
+      "t2b",
+      "apostei 20 na odd 2,50 e ganhei, quanto vou receber?",
+      [
+        "calcular_retorno"
+      ]
+    ],
+    [
+      "P5",
+      "t5",
+      "vale a pena usar o bonus de boas vindas da bet?",
+      [
+        "bonus_promocoes"
+      ]
+    ]
+  ]
+}

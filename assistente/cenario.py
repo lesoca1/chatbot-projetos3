@@ -9,7 +9,7 @@ import re
 from dataclasses import replace
 
 from .simulador import Cenario
-from .texto import sem_acento
+from .texto import sem_acento, trocar_idade
 
 PALAVRAS_NUMERO = {
     "um": 1, "uma": 1, "dois": 2, "duas": 2, "tres": 3, "quatro": 4, "cinco": 5, "seis": 6,
@@ -21,6 +21,9 @@ PERIODO = {"dia": "dia", "dias": "dia", "semana": "semana", "semanas": "semana",
 RE_VALOR = [
     re.compile(r"r\$\s*" + NUM + r"(\s*mil\b)?"),
     re.compile(NUM + r"(\s*mil)?\s*(?:reais|real|conto|contos|pila)\b"),
+    # Testes e Validação II: "apostei 20 na odd 2,50", sem a palavra reais.
+    re.compile(r"\b(?:apostei|aposto|apostar|apostando|botei|boto|coloquei|coloco|joguei|jogo)\s+" + NUM
+               + r"(\s*mil)?\s+(?:na|numa|em uma|em)\s+(?:odd|cotacao)"),
 ]
 RE_FREQ = re.compile(NUM + r"\s*(?:vez|vezes|apostas?|jogos?|bilhetes?)\s*(?:por|ao|a|na|no|em cada|cada)\s*(dia|semana|mes)\b")
 RE_PERIODICIDADE = [
@@ -41,6 +44,10 @@ RE_PCT = re.compile(r"(\d+(?:[.,]\d+)?)\s*(?:%|por cento)")
 RE_CORTE = re.compile(r"[,;\d]| e ")
 CONTEXTO_TAXA = re.compile(r"\bano\b|taxa|\ba\.?a\b|anual|rend|juros|poupanca|investi|aplica|selic|cdi|guard")
 CONTEXTO_CHANCE = re.compile(r"chance|acert|probab|ganh|vitori|venc")
+# Testes e Validação II: cenário de outra pessoa ("meu filho aposta 50 reais por semana").
+RE_TERCEIRO = re.compile(
+    r"\b(?:meu|minha|meus|minhas) (?:filh[oa]s?|pai|mae|irma[o]?|marido|esposa|mulher|namorad[oa]|amig[oa]s?|"
+    r"primo|prima|tio|tia|avo|colega|parceir[oa])\b|\b(?:ele|ela|eles|elas) (?:aposta|apostam|joga|jogam)\b")
 RE_SEGUIMENTO = re.compile(r"^\s*(?:e se|e com|e no caso|e quando|e|agora|mas e|e para|e pra)\b|\be se\b")
 
 
@@ -54,7 +61,7 @@ def _numero(txt: str) -> float:
 
 def extrair(texto: str) -> dict:
     """Devolve só os campos que aparecem no texto."""
-    t = sem_acento(texto.lower())
+    t = trocar_idade(sem_acento(texto.lower()))
     dados: dict = {}
 
     for rx in RE_VALOR:
@@ -96,6 +103,8 @@ def extrair(texto: str) -> dict:
             if CONTEXTO_TAXA.search(trecho):
                 dados.setdefault("taxa_anual", valor)
                 break
+    if RE_TERCEIRO.search(t):
+        dados["terceiro"] = True
     return dados
 
 
@@ -104,7 +113,7 @@ RE_NUMEROS = re.compile(r"r\$\s*[\d.,]+(\s*mil\b)?|\b\d+(?:[.,]\d+)*\s*(?:%|por 
 
 def sem_numeros(texto: str) -> str:
     """Texto sem os valores do cenário, para a busca na base não ser diluída por eles."""
-    return RE_NUMEROS.sub(" ", sem_acento(texto.lower()))
+    return RE_NUMEROS.sub(" ", trocar_idade(sem_acento(texto.lower())))
 
 
 def eh_seguimento(texto: str) -> bool:
@@ -120,14 +129,14 @@ def montar(texto: str, anterior: Cenario | None = None) -> tuple[Cenario | None,
     """
     dados = extrair(texto)
     avisos = []
-    if anterior is not None and dados and eh_seguimento(texto):
+    if anterior is not None and set(dados) - {"terceiro"} and eh_seguimento(texto):
         if "periodicidade" in dados and "apostas_por_periodo" not in dados:
             dados["apostas_por_periodo"] = 1
         return replace(anterior, **dados), avisos
     if "valor_por_aposta" in dados and "periodicidade" in dados:
         if "anos" not in dados:
             dados["anos"] = 1.0
-            avisos.append("Você não disse por quanto tempo; as contas mostram 1 ano.")
+            avisos.append("Não foi dito por quanto tempo; as contas mostram 1 ano.")
         dados.setdefault("apostas_por_periodo", 1)
         return Cenario(**dados), avisos
     return None, avisos
