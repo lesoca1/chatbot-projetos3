@@ -10,8 +10,8 @@ import altair as alt
 import pandas as pd
 import streamlit as st
 
-from assistente.assistente import Assistente
-from assistente.explicacao import acertos_para_empatar, descrever_cenario, dinheiro, em_100, explicar, resumir
+from assistente.assistente import PERGUNTA_EXEMPLO, Assistente
+from assistente.explicacao import acertos_para_empatar, aviso_equilibrio, descrever_cenario, dinheiro, em_100, explicar, resumir
 from assistente.formato import numero, pct, reais
 from assistente.simulador import Cenario, margem_da_casa, simular
 
@@ -65,11 +65,12 @@ def perguntar(texto: str):
 
 # ---------- Gráficos e tabelas do simulador ----------
 
-def grafico_dinheiro(s: dict, altura: int = 220):
+def grafico_dinheiro(s: dict, altura: int = 220, terceiro: bool = False):
     """Três barras: o que passou pelas apostas, o que volta em média e o que teria guardado."""
-    barras = [("Você apostou", s["total_em_risco"], CINZA)]
+    barras = [("Total apostado" if terceiro else "Você apostou", s["total_em_risco"], CINZA)]
     if "ve_total" in s:
-        barras.append(("Volta para você, em média", s["total_em_risco"] + s["ve_total"], LARANJA))
+        barras.append(("Volta, em média" if terceiro else "Volta para você, em média",
+                       s["total_em_risco"] + s["ve_total"], LARANJA))
     if "valor_final_investimento" in s:
         barras.append(("Se tivesse guardado", s["valor_final_investimento"], AZUL))
     if len(barras) == 1:
@@ -193,16 +194,19 @@ def mostrar_simulacao(c: Cenario, s: dict, chave: str, na_conversa: bool):
             st.error(e)
         return
     if na_conversa:
-        grafico_dinheiro(s)
-        st.caption(md("Seus números: " + descrever_cenario(c)))
+        grafico_dinheiro(s, terceiro=c.terceiro)
+        st.caption(md(("Números usados: " if c.terceiro else "Seus números: ") + descrever_cenario(c)))
         st.button("Ver gráficos e detalhes no simulador", key=f"abrir_{chave}",
                   on_click=preencher_simulador, args=(c,), type="primary")
         return
 
     grafico_dinheiro(s)
     if s.get("ve_total", 0) > 0:
-        st.warning("Com a chance que você informou, a conta dá positiva. Isso só vale se você acertar mesmo "
-                   "tanto assim. Veja abaixo o que acontece se acertar um pouco menos.")
+        st.warning(md("Com a chance que você informou, a conta dá positiva. Isso só vale se você acertar mesmo "
+                      "tanto assim. " + aviso_equilibrio(c.odd) + " Veja abaixo o que acontece se acertar um "
+                      "pouco menos."))
+        st.button("O que é excesso de confiança?", key="sim_confianca", on_click=perguntar,
+                  args=("O que é excesso de confiança?",))
     st.write("Quer ir além? Abra os itens abaixo.")
     if "trajetorias" in s:
         with st.expander("Como o resultado muda com a sorte"):
@@ -254,7 +258,12 @@ def mostrar_resposta(r, i: int):
             st.info("Regras mudam com o tempo. Confira a versão atual no site da Secretaria de Prêmios e "
                     "Apostas (gov.br/fazenda).")
     if r.sugestoes:
-        st.write("Talvez você queira saber:")
+        if r.tipo == "fora_da_base":
+            st.write("Talvez você queira saber:")
+        elif r.sugestoes == [PERGUNTA_EXEMPLO]:
+            st.write("Não sabe a odd ou a chance? Teste com um exemplo:")
+        else:
+            st.write("Vale ler também:")
         for j, s in enumerate(r.sugestoes):
             st.button(s, key=f"sug_{i}_{j}", on_click=perguntar, args=(s,))
     st.feedback("thumbs", key=f"fb_{i}", on_change=registrar_avaliacao, args=(i,))

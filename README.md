@@ -42,7 +42,7 @@ assistente/explicacao.py    frases que explicam o resultado em linguagem simples
 assistente/legibilidade.py  índice de Flesch adaptado ao português, usado nos testes
 assistente/assistente.py    orquestra segurança, busca, simulador e resposta
 tests/                      testes de perguntas, neutralidade, segurança, simulador, integração e linguagem
-docs/avaliacao/             perguntas escritas como apostador e script que mede a taxa de acerto
+docs/avaliacao/             conjuntos de perguntas (desenvolvimento, controle, sessões da Testes I e validação final) e script que mede a taxa de acerto
 docs/roteiro_teste_usuarios.md  roteiro dos testes com usuários
 docs/evidencias/            capturas de tela e diagramas (Implementações I, II e III)
 ```
@@ -64,4 +64,4 @@ docs/evidencias/            capturas de tela e diagramas (Implementações I, II
 
 ## Como editar a base
 
-Cada registro tem: `id`, `tema`, `perguntas` (formas alternativas), `palavras_chave`, `resumo` (uma frase, até 22 palavras), `resposta` (camada curta), `aprofundamento` (camada "Quer entender melhor?"), `fontes` (chaves da lista `fontes`), `limite`, `acao` e `seguranca`. A lista `glossario` tem `termo`, `formas` (como a palavra pode aparecer no texto) e `definicao`. Depois de editar, rode `pytest`: o teste `test_pergunta_cadastrada_acha_o_proprio_registro` avisa se uma pergunta nova cair no registro errado, e `tests/test_linguagem.py` avisa se uma resposta ficou difícil de ler (Flesch abaixo de 50) ou se o resumo passou de 22 palavras. Para medir a taxa de acerto em perguntas escritas como apostador: `python docs/avaliacao/avaliar.py`.
+Cada registro tem: `id`, `tema`, `perguntas` (formas alternativas), `palavras_chave`, `resumo` (uma frase, até 22 palavras), `resposta` (camada curta), `aprofundamento` (camada "Quer entender melhor?"), `fontes` (chaves da lista `fontes`), `limite`, `acao` e `seguranca`. A lista `glossario` tem `termo`, `formas` (como a palavra pode aparecer no texto) e `definicao`. Depois de editar, rode `pytest`: o teste `test_pergunta_cadastrada_acha_o_proprio_registro` avisa se uma pergunta nova cair no registro errado, e `tests/test_linguagem.py` avisa se uma resposta ficou difícil de ler (Flesch abaixo de 50) ou se o resumo passou de 22 palavras. Para medir a taxa de acerto em perguntas escritas como apostador: `python docs/avaliacao/avaliar.py`. Desde a Testes e Validação II, `tests/test_validacao.py` roda todas as perguntas dos testes como regressão: se uma mudança fizer o assistente errar uma pergunta que já acertava, o teste falha.

@@ -34,6 +34,7 @@ class Cenario:
     odd: float | None = None
     probabilidade: float | None = None  # hipótese do usuário, entre 0 e 1
     taxa_anual: float | None = None  # ex.: 0.08 para 8% ao ano
+    terceiro: bool = False  # cenário de outra pessoa ("meu filho aposta..."); muda só o texto
 
 
 def validar(c: Cenario) -> list[str]:

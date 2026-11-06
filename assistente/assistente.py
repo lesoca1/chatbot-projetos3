@@ -19,7 +19,12 @@ MENSAGEM_FORA_DA_BASE = (
     "revisou, sem consultar a internet. Tente com outras palavras ou escolha um tema ao lado."
 )
 MENSAGEM_SIMULACAO = "Fiz as contas com os seus números."
+MENSAGEM_SIMULACAO_TERCEIRO = "Fiz as contas com esses números."
 MAX_TERMOS = 4
+# Testes e Validação II: quando falta odd ou chance, um botão completa o cenário com estes números de exemplo.
+PERGUNTA_EXEMPLO = "E com odd 1,80 e 50% de chance?"
+# Quando a conta dá ganho médio, o assistente oferece o registro sobre excesso de confiança.
+PERGUNTA_CONFIANCA = "O que é excesso de confiança?"
 RE_PEDIDO_DEFINICAO = re.compile(r"\b(o que|oque|oq|que)\s+(e|eh|sao|significa|quer dizer)\b|\bsignifica")
 
 # Temas em que o simulador não é anexado: pedidos de palpite e estratégia recebem só a resposta neutra.
@@ -106,6 +111,16 @@ class Assistente:
         return Resposta("glossario", f"{g['termo'][0].upper()}{g['termo'][1:]}: {g['definicao']}",
                         fontes=self.citar(["GLOSSARIO_GRUPO"]))
 
+    @staticmethod
+    def sugestoes_simulacao(s: dict) -> list[str]:
+        if s["erros"]:
+            return []
+        if "ve_total" not in s:
+            return [PERGUNTA_EXEMPLO]
+        if s["ve_total"] > 0.005:
+            return [PERGUNTA_CONFIANCA]
+        return []
+
     def responder(self, pergunta: str, cenario_anterior: Cenario | None = None) -> Resposta:
         # 1. Segurança tem prioridade e desliga o simulador.
         risco = detectar_risco(pergunta)
@@ -125,10 +140,12 @@ class Assistente:
             s = simular(c)
             calculo = avisos + explicar(c, s)
             seguimento = cenario_anterior is not None and leitor.eh_seguimento(pergunta)
+            sugestoes = self.sugestoes_simulacao(s)
             if reg is not None and not seguimento:
-                return self._montar("base", reg, pergunta, cenario=c, simulacao=s, calculo=calculo)
-            return Resposta("simulacao", MENSAGEM_SIMULACAO, cenario=c, simulacao=s, calculo=calculo,
-                            resumo=resumir(c, s))
+                return self._montar("base", reg, pergunta, cenario=c, simulacao=s, calculo=calculo,
+                                    sugestoes=sugestoes)
+            return Resposta("simulacao", MENSAGEM_SIMULACAO_TERCEIRO if c.terceiro else MENSAGEM_SIMULACAO, cenario=c, simulacao=s, calculo=calculo,
+                            resumo=resumir(c, s), sugestoes=sugestoes)
 
         if reg is not None:
             calculo = []
