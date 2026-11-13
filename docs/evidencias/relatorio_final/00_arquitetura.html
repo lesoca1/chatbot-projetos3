@@ -1,0 +1,27 @@
+<html><head><meta charset="utf-8"><style>
+body{font-family:'DejaVu Sans',Arial;margin:0;padding:24px;background:#fff;width:1150px;color:#1f2d3d}
+.row{display:flex;align-items:stretch;gap:14px;margin:10px 0}
+.b{border:2px solid #4f81bd;border-radius:10px;padding:10px 14px;background:#eef4fb;font-size:17px;line-height:1.35}
+.b h{display:block;font-weight:bold;font-size:18px;margin-bottom:3px;color:#365f91}
+.u{background:#fdecea;border-color:#c0392b}.u h{color:#c0392b}
+.s{background:#fff7e0;border-color:#d4a017}.s h{color:#9a7100}
+.g{background:#e9f6ec;border-color:#2e8b57}.g h{color:#2e7d4f}
+.d{background:#f4f4f4;border-color:#888}.d h{color:#555}
+.arrow{font-size:28px;color:#4f81bd;text-align:center;margin:2px 0}
+.lab{font-size:14px;color:#555;text-align:center}
+</style></head><body>
+<div class="row"><div class="b u" style="flex:1"><h>Usuário</h>Escreve uma pergunta ou conta como aposta ("aposto R$ 50 por semana..."). Também pode clicar em exemplos, temas da barra lateral ou abrir a página Simulador.</div>
+<div class="b" style="flex:1"><h>Interface (Streamlit, app.py)</h>Conversa, página do simulador, glossário, botões de sugestão, avaliação de cada resposta e registro da conversa.</div></div>
+<div class="arrow">&#8595;</div>
+<div class="row"><div class="b s" style="flex:1"><h>1. Segurança (seguranca.py)</h>Procura sinais de crise, dívida, dinheiro das contas, perda de controle ou vontade de recuperar perdas. Se achar, responde com o texto de segurança (CVV 188, CAPS, autoexclusão) e desliga o simulador. Vem antes de tudo.</div></div>
+<div class="arrow">&#8595; <span class="lab">sem sinal de risco</span></div>
+<div class="row">
+<div class="b" style="flex:1"><h>2. Leitura do cenário (cenario.py)</h>Acha valor, frequência, período, odd, chance e rendimento na frase, por regras. Guarda o último cenário para o "e se...".</div>
+<div class="b" style="flex:1"><h>3. Busca na base (texto.py, busca.py)</h>Normaliza o texto (acentos, sinônimos, gírias, erros de digitação) e compara com as 586 formas de pergunta por BM25. Só aceita acima do limiar.</div></div>
+<div class="row">
+<div class="b g" style="flex:1"><h>Simulador (simulador.py, explicacao.py)</h>Total apostado, perda média, faixa de 10.000 simulações (Monte Carlo, semente fixa), chance de prejuízo pela binomial exata, comparação com guardar o dinheiro e margem da casa. Frases fixas preenchidas com os números.</div>
+<div class="b g" style="flex:1"><h>Resposta da base</h>Em camadas: resumo em uma frase, resposta curta, palavras difíceis do glossário e "Quer entender melhor?" com fontes, limite e data de revisão.</div>
+<div class="b d" style="flex:0.7"><h>Abaixo do limiar</h>"Essa pergunta não está na minha base." Sugere perguntas parecidas. Não inventa.</div></div>
+<div class="arrow">&#8593;</div>
+<div class="row"><div class="b d" style="flex:1"><h>Base de conhecimento (base/base_conhecimento.json, versão 3.1)</h>83 registros em 11 temas, 586 formas de pergunta, 36 fontes, 32 termos no glossário e 4 respostas de segurança. Todo texto exibido sai daqui ou de um modelo fixo com números calculados. Sem internet e sem modelo de linguagem.</div></div>
+</body></html>

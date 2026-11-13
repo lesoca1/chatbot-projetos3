@@ -44,8 +44,19 @@ assistente/assistente.py    orquestra segurança, busca, simulador e resposta
 tests/                      testes de perguntas, neutralidade, segurança, simulador, integração e linguagem
 docs/avaliacao/             conjuntos de perguntas (desenvolvimento, controle, sessões da Testes I e validação final) e script que mede a taxa de acerto
 docs/roteiro_teste_usuarios.md  roteiro dos testes com usuários
-docs/evidencias/            capturas de tela e diagramas (Implementações I, II e III)
+docs/evidencias/            capturas de tela e diagramas (Implementações I a III, Testes II e relatório final)
+docs/video/                 cenas do vídeo de apresentação e script que grava a demonstração da tela
 ```
+
+## Vídeo de apresentação
+
+`docs/video/video_cenas.py` tem as sete cenas do pitch (tempo, tela, legenda e fala). Para regravar a demonstração com o link do app no cartão final, com o app rodando em `localhost:8501`:
+
+```bash
+node docs/video/gravar_demo.js docs/video/cenas.json PASTA_SAIDA https://LINK-DO-APP
+```
+
+O resultado é `PASTA_SAIDA/demo.webm`, sem áudio e com legendas. O grupo grava a voz por cima.
 
 ## Como funciona a restrição à base
 
